@@ -1,0 +1,8 @@
+{
+    "predict_samples": 822,
+    "test_exact_match": 0.5,
+    "test_f1": 0.0,
+    "test_runtime": 27.6037,
+    "test_samples_per_second": 29.779,
+    "test_steps_per_second": 3.731
+}

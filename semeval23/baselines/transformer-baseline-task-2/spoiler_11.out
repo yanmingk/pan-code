@@ -1,0 +1,229 @@
+/var/spool/slurmd/job00011/slurm_script: line 25: nvidia-smi: command not found
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Mon_Oct_24_19:12:58_PDT_2022
+Cuda compilation tools, release 12.0, V12.0.76
+Build cuda_12.0.r12.0/compiler.31968024_0
+08/01/2023 21:50:05 - WARNING - __main__ - Process rank: 0, device: cpu, n_gpu: 0distributed training: False, 16-bits training: False
+08/01/2023 21:50:05 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=0,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=../../output/bert_large/runs/Aug01_21-50-05_gpu-pr1-02,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=8.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=../../output/bert_large,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=../../output/bert_large,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|configuration_utils.py:715] 2023-08-01 21:50:05,570 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-01 21:50:05,580 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|configuration_utils.py:715] 2023-08-01 21:50:05,620 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-01 21:50:05,620 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 21:50:05,627 >> loading file vocab.txt from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/vocab.txt
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 21:50:05,627 >> loading file tokenizer.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/tokenizer.json
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 21:50:05,627 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 21:50:05,627 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 21:50:05,627 >> loading file tokenizer_config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/tokenizer_config.json
+[INFO|configuration_utils.py:715] 2023-08-01 21:50:05,627 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-01 21:50:05,628 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|modeling_utils.py:2638] 2023-08-01 21:50:05,779 >> loading weights file model.safetensors from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/model.safetensors
+[INFO|modeling_utils.py:3360] 2023-08-01 21:50:07,874 >> Some weights of the model checkpoint at bert-large-uncased were not used when initializing BertForQuestionAnswering: ['bert.pooler.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'bert.pooler.dense.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertForQuestionAnswering from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForQuestionAnswering from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:3372] 2023-08-01 21:50:07,875 >> Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-large-uncased and are newly initialized: ['qa_outputs.weight', 'qa_outputs.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Running tokenizer on train dataset:   0%|          | 0/3200 [00:00<?, ? examples/s]Running tokenizer on train dataset:  31%|███▏      | 1000/3200 [00:01<00:03, 560.24 examples/s]Running tokenizer on train dataset:  62%|██████▎   | 2000/3200 [00:03<00:02, 561.54 examples/s]Running tokenizer on train dataset:  94%|█████████▍| 3000/3200 [00:05<00:00, 558.87 examples/s]Running tokenizer on train dataset: 100%|██████████| 3200/3200 [00:05<00:00, 566.66 examples/s]                                                                                               Running tokenizer on validation dataset:   0%|          | 0/400 [00:00<?, ? examples/s]Running tokenizer on validation dataset: 100%|██████████| 400/400 [00:00<00:00, 478.67 examples/s]                                                                                                  [INFO|trainer.py:1681] 2023-08-01 21:50:15,038 >> ***** Running training *****
+[INFO|trainer.py:1682] 2023-08-01 21:50:15,038 >>   Num examples = 6,624
+[INFO|trainer.py:1683] 2023-08-01 21:50:15,038 >>   Num Epochs = 8
+[INFO|trainer.py:1684] 2023-08-01 21:50:15,038 >>   Instantaneous batch size per device = 12
+[INFO|trainer.py:1687] 2023-08-01 21:50:15,038 >>   Total train batch size (w. parallel, distributed & accumulation) = 12
+[INFO|trainer.py:1688] 2023-08-01 21:50:15,038 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1689] 2023-08-01 21:50:15,038 >>   Total optimization steps = 4,416
+[INFO|trainer.py:1690] 2023-08-01 21:50:15,039 >>   Number of trainable parameters = 334,094,338
+[INFO|integrations.py:716] 2023-08-01 21:50:15,047 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: ym_k. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.7
+wandb: Run data is saved locally in /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task-2/wandb/run-20230801_215016-hh7yardl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run kind-cloud-4
+wandb: ⭐️ View project at https://wandb.ai/ym_k/huggingface
+wandb: 🚀 View run at https://wandb.ai/ym_k/huggingface/runs/hh7yardl
+  0%|          | 0/4416 [00:00<?, ?it/s]slurmstepd: error: *** JOB 11 ON gpu-pr1-02 CANCELLED AT 2023-08-01T21:50:32 ***

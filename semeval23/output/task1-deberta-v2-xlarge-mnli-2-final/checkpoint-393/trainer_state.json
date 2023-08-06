@@ -1,0 +1,79 @@
+{
+  "best_metric": null,
+  "best_model_checkpoint": null,
+  "epoch": 6.986666666666666,
+  "global_step": 393,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 1.0,
+      "eval_accuracy": 0.595,
+      "eval_loss": 0.9019345045089722,
+      "eval_runtime": 25.5691,
+      "eval_samples_per_second": 15.644,
+      "eval_steps_per_second": 1.955,
+      "step": 56
+    },
+    {
+      "epoch": 1.99,
+      "eval_accuracy": 0.79,
+      "eval_loss": 0.584882915019989,
+      "eval_runtime": 25.5037,
+      "eval_samples_per_second": 15.684,
+      "eval_steps_per_second": 1.96,
+      "step": 112
+    },
+    {
+      "epoch": 2.99,
+      "eval_accuracy": 0.86,
+      "eval_loss": 0.39916905760765076,
+      "eval_runtime": 25.3769,
+      "eval_samples_per_second": 15.762,
+      "eval_steps_per_second": 1.97,
+      "step": 168
+    },
+    {
+      "epoch": 4.0,
+      "eval_accuracy": 0.9,
+      "eval_loss": 0.25373849272727966,
+      "eval_runtime": 25.3707,
+      "eval_samples_per_second": 15.766,
+      "eval_steps_per_second": 1.971,
+      "step": 225
+    },
+    {
+      "epoch": 5.0,
+      "eval_accuracy": 0.96,
+      "eval_loss": 0.135370135307312,
+      "eval_runtime": 25.4179,
+      "eval_samples_per_second": 15.737,
+      "eval_steps_per_second": 1.967,
+      "step": 281
+    },
+    {
+      "epoch": 5.99,
+      "eval_accuracy": 0.97,
+      "eval_loss": 0.10497087240219116,
+      "eval_runtime": 25.3559,
+      "eval_samples_per_second": 15.775,
+      "eval_steps_per_second": 1.972,
+      "step": 337
+    },
+    {
+      "epoch": 6.99,
+      "eval_accuracy": 0.9875,
+      "eval_loss": 0.046848364174366,
+      "eval_runtime": 25.4072,
+      "eval_samples_per_second": 15.744,
+      "eval_steps_per_second": 1.968,
+      "step": 393
+    }
+  ],
+  "max_steps": 896,
+  "num_train_epochs": 16,
+  "total_flos": 5.33703050883072e+16,
+  "trial_name": null,
+  "trial_params": null
+}

@@ -1,0 +1,32 @@
+Thu Aug  3 14:49:04 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100 80G...  On   | 00000000:C1:00.0 Off |                    0 |
+| N/A   37C    P0    44W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Traceback (most recent call last):
+  File "/mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task-2/../../results/tocsv.py", line 35, in <module>
+    json_to_csv(args.input, args.output)
+  File "/mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task-2/../../results/tocsv.py", line 19, in json_to_csv
+    obj = json.loads(line)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 2 column 1 (char 2)

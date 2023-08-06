@@ -1,0 +1,249 @@
+Sat Jul 29 16:52:49 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100 80G...  On   | 00000000:41:00.0 Off |                    0 |
+| N/A   30C    P0    42W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Requirement already satisfied: simpletransformers in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (0.63.11)
+Requirement already satisfied: numpy in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (1.24.3)
+Requirement already satisfied: requests in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (2.31.0)
+Requirement already satisfied: tqdm>=4.47.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (4.65.0)
+Requirement already satisfied: regex in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (2023.6.3)
+Requirement already satisfied: transformers>=4.6.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (4.30.2)
+Requirement already satisfied: datasets in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (2.13.0)
+Requirement already satisfied: scipy in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (1.10.1)
+Requirement already satisfied: scikit-learn in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (1.2.2)
+Requirement already satisfied: seqeval in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (1.2.2)
+Requirement already satisfied: tensorboard in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (2.13.0)
+Requirement already satisfied: pandas in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (2.0.2)
+Requirement already satisfied: tokenizers in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (0.13.3)
+Requirement already satisfied: wandb>=0.10.32 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (0.15.7)
+Requirement already satisfied: streamlit in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (1.25.0)
+Requirement already satisfied: sentencepiece in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from simpletransformers) (0.1.99)
+Requirement already satisfied: filelock in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers>=4.6.0->simpletransformers) (3.12.2)
+Requirement already satisfied: huggingface-hub<1.0,>=0.14.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers>=4.6.0->simpletransformers) (0.15.1)
+Requirement already satisfied: packaging>=20.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers>=4.6.0->simpletransformers) (23.1)
+Requirement already satisfied: pyyaml>=5.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers>=4.6.0->simpletransformers) (6.0)
+Requirement already satisfied: safetensors>=0.3.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers>=4.6.0->simpletransformers) (0.3.1)
+Requirement already satisfied: Click!=8.0.0,>=7.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (8.1.3)
+Requirement already satisfied: GitPython!=3.1.29,>=1.0.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (3.1.32)
+Requirement already satisfied: psutil>=5.0.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (5.9.5)
+Requirement already satisfied: sentry-sdk>=1.0.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (1.28.1)
+Requirement already satisfied: docker-pycreds>=0.4.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (0.4.0)
+Requirement already satisfied: pathtools in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (0.1.2)
+Requirement already satisfied: setproctitle in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (1.3.2)
+Requirement already satisfied: setuptools in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (67.8.0)
+Requirement already satisfied: appdirs>=1.4.3 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (1.4.4)
+Requirement already satisfied: protobuf!=4.21.0,<5,>=3.19.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from wandb>=0.10.32->simpletransformers) (4.23.4)
+Requirement already satisfied: charset-normalizer<4,>=2 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests->simpletransformers) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests->simpletransformers) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests->simpletransformers) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests->simpletransformers) (2023.5.7)
+Requirement already satisfied: pyarrow>=8.0.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from datasets->simpletransformers) (12.0.1)
+Requirement already satisfied: dill<0.3.7,>=0.3.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from datasets->simpletransformers) (0.3.6)
+Requirement already satisfied: xxhash in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from datasets->simpletransformers) (3.2.0)
+Requirement already satisfied: multiprocess in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from datasets->simpletransformers) (0.70.14)
+Requirement already satisfied: fsspec[http]>=2021.11.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from datasets->simpletransformers) (2023.6.0)
+Requirement already satisfied: aiohttp in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from datasets->simpletransformers) (3.8.4)
+Requirement already satisfied: python-dateutil>=2.8.2 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from pandas->simpletransformers) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from pandas->simpletransformers) (2023.3)
+Requirement already satisfied: tzdata>=2022.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from pandas->simpletransformers) (2023.3)
+Requirement already satisfied: joblib>=1.1.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from scikit-learn->simpletransformers) (1.2.0)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from scikit-learn->simpletransformers) (3.1.0)
+Requirement already satisfied: altair<6,>=4.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (5.0.1)
+Requirement already satisfied: blinker<2,>=1.0.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (1.6.2)
+Requirement already satisfied: cachetools<6,>=4.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (5.3.1)
+Requirement already satisfied: importlib-metadata<7,>=1.4 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (6.8.0)
+Requirement already satisfied: pillow<10,>=7.1.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (9.5.0)
+Requirement already satisfied: pympler<2,>=0.9 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (1.0.1)
+Requirement already satisfied: rich<14,>=10.14.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (13.5.0)
+Requirement already satisfied: tenacity<9,>=8.1.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (8.2.2)
+Requirement already satisfied: toml<2,>=0.10.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (0.10.2)
+Requirement already satisfied: typing-extensions<5,>=4.1.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (4.6.3)
+Requirement already satisfied: tzlocal<5,>=1.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (4.3.1)
+Requirement already satisfied: validators<1,>=0.2 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (0.20.0)
+Requirement already satisfied: pydeck<1,>=0.8 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (0.8.0)
+Requirement already satisfied: tornado<7,>=6.0.3 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (6.3.2)
+Requirement already satisfied: watchdog>=2.1.5 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from streamlit->simpletransformers) (3.0.0)
+Requirement already satisfied: absl-py>=0.4 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tensorboard->simpletransformers) (1.4.0)
+Requirement already satisfied: grpcio>=1.48.2 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tensorboard->simpletransformers) (1.56.2)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tensorboard->simpletransformers) (2.22.0)
+Requirement already satisfied: google-auth-oauthlib<1.1,>=0.5 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tensorboard->simpletransformers) (1.0.0)
+Requirement already satisfied: markdown>=2.6.8 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tensorboard->simpletransformers) (3.4.4)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tensorboard->simpletransformers) (0.7.1)
+Requirement already satisfied: werkzeug>=1.0.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tensorboard->simpletransformers) (2.3.6)
+Requirement already satisfied: wheel>=0.26 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tensorboard->simpletransformers) (0.38.4)
+Requirement already satisfied: jinja2 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from altair<6,>=4.0->streamlit->simpletransformers) (3.1.2)
+Requirement already satisfied: jsonschema>=3.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from altair<6,>=4.0->streamlit->simpletransformers) (4.17.3)
+Requirement already satisfied: toolz in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from altair<6,>=4.0->streamlit->simpletransformers) (0.12.0)
+Requirement already satisfied: six>=1.4.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from docker-pycreds>=0.4.0->wandb>=0.10.32->simpletransformers) (1.16.0)
+Requirement already satisfied: attrs>=17.3.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from aiohttp->datasets->simpletransformers) (23.1.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from aiohttp->datasets->simpletransformers) (6.0.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0.0a3 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from aiohttp->datasets->simpletransformers) (4.0.2)
+Requirement already satisfied: yarl<2.0,>=1.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from aiohttp->datasets->simpletransformers) (1.9.2)
+Requirement already satisfied: frozenlist>=1.1.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from aiohttp->datasets->simpletransformers) (1.3.3)
+Requirement already satisfied: aiosignal>=1.1.2 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from aiohttp->datasets->simpletransformers) (1.3.1)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from GitPython!=3.1.29,>=1.0.0->wandb>=0.10.32->simpletransformers) (4.0.10)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from google-auth<3,>=1.6.3->tensorboard->simpletransformers) (0.3.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from google-auth<3,>=1.6.3->tensorboard->simpletransformers) (4.9)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from google-auth-oauthlib<1.1,>=0.5->tensorboard->simpletransformers) (1.3.1)
+Requirement already satisfied: zipp>=0.5 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from importlib-metadata<7,>=1.4->streamlit->simpletransformers) (3.16.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from rich<14,>=10.14.0->streamlit->simpletransformers) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from rich<14,>=10.14.0->streamlit->simpletransformers) (2.15.1)
+Requirement already satisfied: pytz-deprecation-shim in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from tzlocal<5,>=1.1->streamlit->simpletransformers) (0.1.0.post0)
+Requirement already satisfied: decorator>=3.4.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.local/lib/python3.10/site-packages/decorator-5.1.1-py3.10.egg (from validators<1,>=0.2->streamlit->simpletransformers) (5.1.1)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from werkzeug>=1.0.1->tensorboard->simpletransformers) (2.1.3)
+Requirement already satisfied: smmap<6,>=3.0.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from gitdb<5,>=4.0.1->GitPython!=3.1.29,>=1.0.0->wandb>=0.10.32->simpletransformers) (5.0.0)
+Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit->simpletransformers) (0.19.3)
+Requirement already satisfied: mdurl~=0.1 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich<14,>=10.14.0->streamlit->simpletransformers) (0.1.2)
+Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard->simpletransformers) (0.5.0)
+Requirement already satisfied: oauthlib>=3.0.0 in /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<1.1,>=0.5->tensorboard->simpletransformers) (3.2.2)
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ configuration_utils.py:629 in _get_config_dict                               │
+│                                                                              │
+│   626 │   │   │                                                              │
+│   627 │   │   │   try:                                                       │
+│   628 │   │   │   │   # Load from local folder or from cache or download fro │
+│ ❱ 629 │   │   │   │   resolved_config_file = cached_file(                    │
+│   630 │   │   │   │   │   pretrained_model_name_or_path,                     │
+│   631 │   │   │   │   │   configuration_file,                                │
+│   632 │   │   │   │   │   cache_dir=cache_dir,                               │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ utils/hub.py:417 in cached_file                                              │
+│                                                                              │
+│    414 │   user_agent = http_user_agent(user_agent)                          │
+│    415 │   try:                                                              │
+│    416 │   │   # Load from URL or cache if already cached                    │
+│ ❱  417 │   │   resolved_file = hf_hub_download(                              │
+│    418 │   │   │   path_or_repo_id,                                          │
+│    419 │   │   │   filename,                                                 │
+│    420 │   │   │   subfolder=None if len(subfolder) == 0 else subfolder,     │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/huggingface_h │
+│ ub/utils/_validators.py:110 in _inner_fn                                     │
+│                                                                              │
+│   107 │   │   │   kwargs.items(),  # Kwargs values                           │
+│   108 │   │   ):                                                             │
+│   109 │   │   │   if arg_name in ["repo_id", "from_id", "to_id"]:            │
+│ ❱ 110 │   │   │   │   validate_repo_id(arg_value)                            │
+│   111 │   │   │                                                              │
+│   112 │   │   │   elif arg_name == "token" and arg_value is not None:        │
+│   113 │   │   │   │   has_token = True                                       │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/huggingface_h │
+│ ub/utils/_validators.py:164 in validate_repo_id                              │
+│                                                                              │
+│   161 │   │   )                                                              │
+│   162 │                                                                      │
+│   163 │   if not REPO_ID_REGEX.match(repo_id):                               │
+│ ❱ 164 │   │   raise HFValidationError(                                       │
+│   165 │   │   │   "Repo id must use alphanumeric chars or '-', '_', '.', '-- │
+│   166 │   │   │   " forbidden, '-' and '.' cannot start or end the name, max │
+│   167 │   │   │   f" '{repo_id}'."                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+HFValidationError: Repo id must use alphanumeric chars or '-', '_', '.', '--' 
+and '..' are forbidden, '-' and '.' cannot start or end the name, max length is 
+96: '/model'.
+
+During handling of the above exception, another exception occurred:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/pan-code/semev │
+│ al23/baselines/transformer-baseline-task-1/transformer-baseline-task-1.py:55 │
+│  in <module>                                                                 │
+│                                                                              │
+│   52                                                                         │
+│   53 if __name__ == '__main__':                                              │
+│   54 │   args = parse_args()                                                 │
+│ ❱ 55 │   run_baseline(args.input, args.output)                               │
+│   56                                                                         │
+│   57                                                                         │
+│                                                                              │
+│ /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/pan-code/semev │
+│ al23/baselines/transformer-baseline-task-1/transformer-baseline-task-1.py:49 │
+│  in run_baseline                                                             │
+│                                                                              │
+│   46                                                                         │
+│   47 def run_baseline(input_file, output_file):                              │
+│   48 │   with open(output_file, 'w') as out:                                 │
+│ ❱ 49 │   │   for prediction in predict(input_file):                          │
+│   50 │   │   │   out.write(json.dumps(prediction) + '\n')                    │
+│   51                                                                         │
+│   52                                                                         │
+│                                                                              │
+│ /mnt/campus/math/cluster/research/slurm-pr1/work_root/y53kang/pan-code/semev │
+│ al23/baselines/transformer-baseline-task-1/transformer-baseline-task-1.py:37 │
+│  in predict                                                                  │
+│                                                                              │
+│   34 def predict(df):                                                        │
+│   35 │   df = load_input(df)                                                 │
+│   36 │   labels = ['phrase', 'passage', 'multi']                             │
+│ ❱ 37 │   model = ClassificationModel('deberta', '/model', use_cuda=use_cuda( │
+│   38 │                                                                       │
+│   39 │   uuids = list(df['id'])                                              │
+│   40 │   texts = list(df['text'])                                            │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/simpletransfo │
+│ rmers/classification/classification_model.py:371 in __init__                 │
+│                                                                              │
+│    368 │   │   │   )                                                         │
+│    369 │   │   │   self.num_labels = num_labels                              │
+│    370 │   │   else:                                                         │
+│ ❱  371 │   │   │   self.config = config_class.from_pretrained(model_name, ** │
+│    372 │   │   │   self.num_labels = self.config.num_labels                  │
+│    373 │   │                                                                 │
+│    374 │   │   if model_type in MODELS_WITHOUT_CLASS_WEIGHTS_SUPPORT and wei │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ configuration_utils.py:547 in from_pretrained                                │
+│                                                                              │
+│   544 │   │   assert config.output_attentions == True                        │
+│   545 │   │   assert unused_kwargs == {"foo": False}                         │
+│   546 │   │   ```"""                                                         │
+│ ❱ 547 │   │   config_dict, kwargs = cls.get_config_dict(pretrained_model_nam │
+│   548 │   │   if "model_type" in config_dict and hasattr(cls, "model_type")  │
+│   549 │   │   │   logger.warning(                                            │
+│   550 │   │   │   │   f"You are using a model of type {config_dict['model_ty │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ configuration_utils.py:574 in get_config_dict                                │
+│                                                                              │
+│   571 │   │   """                                                            │
+│   572 │   │   original_kwargs = copy.deepcopy(kwargs)                        │
+│   573 │   │   # Get config dict associated with the base config file         │
+│ ❱ 574 │   │   config_dict, kwargs = cls._get_config_dict(pretrained_model_na │
+│   575 │   │   if "_commit_hash" in config_dict:                              │
+│   576 │   │   │   original_kwargs["_commit_hash"] = config_dict["_commit_has │
+│   577                                                                        │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ configuration_utils.py:650 in _get_config_dict                               │
+│                                                                              │
+│   647 │   │   │   │   raise                                                  │
+│   648 │   │   │   except Exception:                                          │
+│   649 │   │   │   │   # For any other exception, we throw a generic error.   │
+│ ❱ 650 │   │   │   │   raise EnvironmentError(                                │
+│   651 │   │   │   │   │   f"Can't load the configuration of '{pretrained_mod │
+│   652 │   │   │   │   │   " from 'https://huggingface.co/models', make sure  │
+│   653 │   │   │   │   │   f" name. Otherwise, make sure '{pretrained_model_n │
+╰──────────────────────────────────────────────────────────────────────────────╯
+OSError: Can't load the configuration of '/model'. If you were trying to load it
+from 'https://huggingface.co/models', make sure you don't have a local directory
+with the same name. Otherwise, make sure '/model' is the correct path to a 
+directory containing a config.json file

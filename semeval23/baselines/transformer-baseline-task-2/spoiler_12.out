@@ -1,0 +1,141 @@
+/var/spool/slurmd/job00012/slurm_script: line 25: nvidia-smi: command not found
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Mon_Oct_24_19:12:58_PDT_2022
+Cuda compilation tools, release 12.0, V12.0.76
+Build cuda_12.0.r12.0/compiler.31968024_0
+08/01/2023 21:51:13 - WARNING - __main__ - Process rank: 0, device: cpu, n_gpu: 0distributed training: False, 16-bits training: False
+08/01/2023 21:51:13 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=0,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=../../output/bert_large/runs/Aug01_21-51-12_gpu-pr1-01,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=8.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=../../output/bert_large,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=../../output/bert_large,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -2/run_qa_hf.py:694 in <module>                                              │
+│                                                                              │
+│   691                                                                        │
+│   692                                                                        │
+│   693 if __name__ == "__main__":                                             │
+│ ❱ 694 │   main()                                                             │
+│   695                                                                        │
+│                                                                              │
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -2/run_qa_hf.py:264 in main                                                  │
+│                                                                              │
+│   261 │   if os.path.isdir(training_args.output_dir) and training_args.do_tr │
+│   262 │   │   last_checkpoint = get_last_checkpoint(training_args.output_dir │
+│   263 │   │   if last_checkpoint is None and len(os.listdir(training_args.ou │
+│ ❱ 264 │   │   │   raise ValueError(                                          │
+│   265 │   │   │   │   f"Output directory ({training_args.output_dir}) alread │
+│   266 │   │   │   │   "Use --overwrite_output_dir to overcome."              │
+│   267 │   │   │   )                                                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ValueError: Output directory (../../output/bert_large) already exists and is not
+empty. Use --overwrite_output_dir to overcome.

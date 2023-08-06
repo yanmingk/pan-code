@@ -1,0 +1,919 @@
+Thu Aug  3 19:23:56 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100 80G...  On   | 00000000:C1:00.0 Off |                    0 |
+| N/A   45C    P0    46W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+08/03/2023 19:24:01 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+08/03/2023 19:24:01 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=epoch,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=7e-06,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=../../output/task1-deberta-v2-xlarge-mnli-2/runs/Aug03_19-24-01_gpu-pr1-02,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=8.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=../../output/task1-deberta-v2-xlarge-mnli-2,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=task1-deberta-v2-xlarge-mnli,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|configuration_utils.py:715] 2023-08-03 19:24:01,731 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/config.json
+[INFO|configuration_utils.py:771] 2023-08-03 19:24:01,740 >> Model config DebertaV2Config {
+  "_name_or_path": "microsoft/deberta-v2-xlarge-mnli",
+  "architectures": [
+    "DebertaV2ForSequenceClassification"
+  ],
+  "attention_head_size": 64,
+  "attention_probs_dropout_prob": 0.1,
+  "conv_act": "gelu",
+  "conv_kernel_size": 3,
+  "finetuning_task": "text-classification",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1536,
+  "id2label": {
+    "0": "CONTRADICTION",
+    "1": "NEUTRAL",
+    "2": "ENTAILMENT"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 6144,
+  "label2id": {
+    "CONTRADICTION": 0,
+    "ENTAILMENT": 2,
+    "NEUTRAL": 1
+  },
+  "layer_norm_eps": 1e-07,
+  "max_position_embeddings": 512,
+  "max_relative_positions": -1,
+  "model_type": "deberta-v2",
+  "norm_rel_ebd": "layer_norm",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_dropout": 0,
+  "pooler_hidden_act": "gelu",
+  "pooler_hidden_size": 1536,
+  "pooling": {
+    "dropout": 0,
+    "hidden_act": "gelu"
+  },
+  "pos_att_type": [
+    "p2c",
+    "c2p"
+  ],
+  "position_biased_input": false,
+  "position_buckets": 256,
+  "relative_attention": true,
+  "share_att_key": true,
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 0,
+  "vocab_size": 128100
+}
+
+{'id': 10, 'context': 'Analysis: This may be the most brutal number in the CBO reportThis may be the most brutal number in the CBO report - Plenty has been made of the big Congressional Budget Office finding that 24 million people could lose their insurance under Republicans\' Obamacare replacement over the next decade. That\'s higher than expected and poses a clear and massive hurdle for Republicans as they attempt to convince dozens of skeptical members. But there\'s another number that paints a particularly dire picture for the GOP\'s alternative — especially in light of President Trump\'s populist rhetoric. According to the CBO, 64-year olds making $26,500 per year would see their premiums increase by an estimated 750 percent by 2026. While they are on track to pay $1,700 under the current law, the CBO projects the American Health Care Act would force them to pay $14,600. Even if you grant that inflation will allow them to make slightly more money by 2026, that\'s still about half of their income going to health care. Here\'s how that looks as a percentage of income (h/t Philip Bump): As skeptics of the law noted, that suggests the reason premiums as a whole will eventually decline is because older, poorer people simply won\'t be able to afford it. The legislation reduces premiums substantially for younger people but increases them substantially for older people — and especially poorer, older people — according to the CBO. The CBO\'s estimate of the premium increases for older, poorer Americans is actually worse than a previous one from AARP. Here\'s what AARP, which has announced its opposition to the bill, said last week: ... Our estimates find that, taken together, premiums for older adults could increase by as much as $3,600 for a 55-year old earning $25,000 a year, $7,000 for a 64-year old earning $25,000 a year and up to $8,400 for a 64-year old earning $15,000 a year. If you\'re a Republican looking at these numbers, you have to be concerned — just from a self-preservation standpoint. Republican leaders have made great pains to argue that the CBO\'s estimate of the millions who will lose insurance is faulty, or even that it\'s a necessary side effect of returning to a more free-market approach to health care. But the GOP\'s counter-argument is predicated on the idea that its alternative would at least allow people access to coverage. Paying such a substantial portion of one\'s income on health insurance doesn\'t meet that goal — if, in fact, the CBO\'s estimate is anywhere close to accurate. It also affects a group of voters who are integral to the Trump Coalition. Less-formally educated and lower-income white Americans were the backbone of the electoral shift that allowed President Trump to be elected, and he has promised them the world: Coverage that is even more affordable than the Affordable Care Act and "insurance for everybody." On top of all that, older people are much more likely to vote than younger people, especially in a midterm election like 2018. So basically, Trump\'s win was built on older, poorer people, for whom this law appears to drive up premiums and drive down the insurance rate, while benefiting the younger and wealthier. That\'s not something that will assure skeptical Republicans at all — even if they can get past that 24 million number.', 'tags': 'phrase'}
+['multi', 'passage', 'phrase']
+08/03/2023 19:24:01 - INFO - __main__ - setting problem type to single label classification
+[INFO|configuration_utils.py:715] 2023-08-03 19:24:01,780 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/config.json
+[INFO|configuration_utils.py:771] 2023-08-03 19:24:01,780 >> Model config DebertaV2Config {
+  "_name_or_path": "microsoft/deberta-v2-xlarge-mnli",
+  "architectures": [
+    "DebertaV2ForSequenceClassification"
+  ],
+  "attention_head_size": 64,
+  "attention_probs_dropout_prob": 0.1,
+  "conv_act": "gelu",
+  "conv_kernel_size": 3,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1536,
+  "id2label": {
+    "0": "CONTRADICTION",
+    "1": "NEUTRAL",
+    "2": "ENTAILMENT"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 6144,
+  "label2id": {
+    "CONTRADICTION": 0,
+    "ENTAILMENT": 2,
+    "NEUTRAL": 1
+  },
+  "layer_norm_eps": 1e-07,
+  "max_position_embeddings": 512,
+  "max_relative_positions": -1,
+  "model_type": "deberta-v2",
+  "norm_rel_ebd": "layer_norm",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_dropout": 0,
+  "pooler_hidden_act": "gelu",
+  "pooler_hidden_size": 1536,
+  "pooling": {
+    "dropout": 0,
+    "hidden_act": "gelu"
+  },
+  "pos_att_type": [
+    "p2c",
+    "c2p"
+  ],
+  "position_biased_input": false,
+  "position_buckets": 256,
+  "relative_attention": true,
+  "share_att_key": true,
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 0,
+  "vocab_size": 128100
+}
+
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 19:24:01,786 >> loading file spm.model from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/spm.model
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 19:24:01,786 >> loading file tokenizer.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 19:24:01,786 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 19:24:01,786 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 19:24:01,786 >> loading file tokenizer_config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/tokenizer_config.json
+[INFO|configuration_utils.py:715] 2023-08-03 19:24:01,786 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/config.json
+[INFO|configuration_utils.py:771] 2023-08-03 19:24:01,787 >> Model config DebertaV2Config {
+  "_name_or_path": "microsoft/deberta-v2-xlarge-mnli",
+  "architectures": [
+    "DebertaV2ForSequenceClassification"
+  ],
+  "attention_head_size": 64,
+  "attention_probs_dropout_prob": 0.1,
+  "conv_act": "gelu",
+  "conv_kernel_size": 3,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1536,
+  "id2label": {
+    "0": "CONTRADICTION",
+    "1": "NEUTRAL",
+    "2": "ENTAILMENT"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 6144,
+  "label2id": {
+    "CONTRADICTION": 0,
+    "ENTAILMENT": 2,
+    "NEUTRAL": 1
+  },
+  "layer_norm_eps": 1e-07,
+  "max_position_embeddings": 512,
+  "max_relative_positions": -1,
+  "model_type": "deberta-v2",
+  "norm_rel_ebd": "layer_norm",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_dropout": 0,
+  "pooler_hidden_act": "gelu",
+  "pooler_hidden_size": 1536,
+  "pooling": {
+    "dropout": 0,
+    "hidden_act": "gelu"
+  },
+  "pos_att_type": [
+    "p2c",
+    "c2p"
+  ],
+  "position_biased_input": false,
+  "position_buckets": 256,
+  "relative_attention": true,
+  "share_att_key": true,
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 0,
+  "vocab_size": 128100
+}
+
+[INFO|tokenization_utils.py:426] 2023-08-03 19:24:02,188 >> Adding [MASK] to the vocabulary
+[WARNING|logging.py:284] 2023-08-03 19:24:02,188 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:715] 2023-08-03 19:24:02,189 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/config.json
+[INFO|configuration_utils.py:771] 2023-08-03 19:24:02,190 >> Model config DebertaV2Config {
+  "_name_or_path": "microsoft/deberta-v2-xlarge-mnli",
+  "architectures": [
+    "DebertaV2ForSequenceClassification"
+  ],
+  "attention_head_size": 64,
+  "attention_probs_dropout_prob": 0.1,
+  "conv_act": "gelu",
+  "conv_kernel_size": 3,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1536,
+  "id2label": {
+    "0": "CONTRADICTION",
+    "1": "NEUTRAL",
+    "2": "ENTAILMENT"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 6144,
+  "label2id": {
+    "CONTRADICTION": 0,
+    "ENTAILMENT": 2,
+    "NEUTRAL": 1
+  },
+  "layer_norm_eps": 1e-07,
+  "max_position_embeddings": 512,
+  "max_relative_positions": -1,
+  "model_type": "deberta-v2",
+  "norm_rel_ebd": "layer_norm",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_dropout": 0,
+  "pooler_hidden_act": "gelu",
+  "pooler_hidden_size": 1536,
+  "pooling": {
+    "dropout": 0,
+    "hidden_act": "gelu"
+  },
+  "pos_att_type": [
+    "p2c",
+    "c2p"
+  ],
+  "position_biased_input": false,
+  "position_buckets": 256,
+  "relative_attention": true,
+  "share_att_key": true,
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 0,
+  "vocab_size": 128100
+}
+
+[WARNING|logging.py:284] 2023-08-03 19:24:02,403 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|modeling_utils.py:2638] 2023-08-03 19:24:02,492 >> loading weights file pytorch_model.bin from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/pytorch_model.bin
+[INFO|modeling_utils.py:3370] 2023-08-03 19:24:08,326 >> All model checkpoint weights were used when initializing DebertaV2ForSequenceClassification.
+
+[INFO|modeling_utils.py:3378] 2023-08-03 19:24:08,327 >> All the weights of DebertaV2ForSequenceClassification were initialized from the model checkpoint at microsoft/deberta-v2-xlarge-mnli.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use DebertaV2ForSequenceClassification for predictions without further training.
+08/03/2023 19:24:08 - WARNING - __main__ - The label2id key in the model config.json is not equal to the label2id key of this run. You can ignore this if you are doing finetuning.
+Running tokenizer on train dataset:   0%|          | 0/3200 [00:00<?, ? examples/s]Running tokenizer on train dataset:  31%|███▏      | 1000/3200 [00:01<00:03, 565.53 examples/s]Running tokenizer on train dataset:  62%|██████▎   | 2000/3200 [00:03<00:02, 561.79 examples/s]Running tokenizer on train dataset:  94%|█████████▍| 3000/3200 [00:05<00:00, 580.96 examples/s]Running tokenizer on train dataset: 100%|██████████| 3200/3200 [00:05<00:00, 588.93 examples/s]                                                                                               08/03/2023 19:24:13 - INFO - __main__ - Shuffling the training dataset
+Running tokenizer on validation dataset:   0%|          | 0/400 [00:00<?, ? examples/s]Running tokenizer on validation dataset: 100%|██████████| 400/400 [00:00<00:00, 528.96 examples/s]                                                                                                  08/03/2023 19:24:14 - INFO - __main__ - Sample 2619 of the training set: {'id': 794, 'context': 'Wondering why that millennial won\'t take your phone call? Here\'s why ...Wondering why that millennial won\'t take your phone call? Here\'s why ... - When I was seven, I joined hen I was seven, I joined the Brownies . At the time, becoming part of Baden-Powell’s famous organisation felt very grown up. However, when I reflect on the experience, I realise that being a Brownie is worth doing only if you start when you’re very young. It’s full of peculiar rituals, and only now that I am 31, and no one incentivises me to do anything by offering me a special badge, do I recognise how odd some of them were We were given badges for applying bandages to our ungrazed knees, remembering to keep a sewing kit in the pockets of our culottes, and successfully using a payphone to make a call. I’ll always remember the day 24 Brownies were walked into the nearest village, and each given a 10pto call our mums and tell them that we were still at Brownies, everything was fine and that we would see them in 40 minutes. From that moment, I saw telephone conversations as exciting events. They were fraught with romance, glamour and danger, and could only be approached if you were under strict supervision, unless you were a proper adult. I would have been overwhelmed if anyone had predicted that when I was an adult, I would have a portable phone for my exclusive use. I think I would have collapsed with shock if I had been told that I could use it to read books, play games, argue with strangers and identify vaguely recognisable songs that were being played in bars. If someone had said that I’d barely bother to make calls at all, I’d have told them they were a liar. But it’s true. More than three-quarters of all adults in the UK own smartphones, but 25% don’t use them to make calls Can we blame millennials for the demise of the phone call? Most of the twenty- and thirtysomethings I socialise with would rather suck Donald Trump’s toe than make or receive a call in order to have a chat. We’re in touch with each other constantly, but written communication allows us to participate in the conversation at the pace we choose. We don’t have to worry about misreading anyone’s tone when the words are laid out in black and white. However, it seems that phone-call phobia definitely isn’t confined to a single generation. Jeremy Corbyn’s aides complained that they were unable to reach their boss on the telephone this week to discuss "traingate" because he was busy making jam Perhaps it’s not the phone calls themselves we object to, but the feeling of being ambushed by them Many millennials struggle with mental health, and we’ve been dubbed the "anxious generation" . As an anxiety sufferer, nothing fills me with dread and terror like a phone call from a withheld number. The trouble is that the issue exacerbates itself. Because we don’t call for chats, I assume that whenever anyone does try to reach me on the telephone, it’s because of a bad, sad, serious emergency and I need to be reached urgently, possibly for a telling off. So I fling the phone from my hand, as if it’s a live snake, and then get a voicemail from someone who was just ringing for a catch-up. "But it’s not urgent, we can just do it on WhatsApp." Perhaps it’s not phone calls themselves we object to, but the feeling of being ambushed by them. One worker in their 20s told the Wall Street Journal: "Calling someone without emailing first can make it seem as though you’re prioritising your needs over theirs." That’s right. The millennial attitude towards phone calls is actually about manners. We’ve grown up with so many methods of communication available to us, and we’ve gravitated towards the least intrusive ones because we know how it feels to be digitally prodded on a range of different channels. Speaking on the telephone is an event, and we don’t want to avoid it – we just need to be sure that both parties have a chance to prepare for it. We want a chance to compose and edit our thoughts, in the way we do when we’re writing them down. There is an element of mindfulness involved too. Thanks to our phones, we’re never doing nothing, and if we’re surprised by a phone call we might struggle to give the caller our full attention. If we know when to expect it, we can at least try to focus in a way that we’re not always capable of during other moments of our lives. It’s fair to say that young people can still see the value of a phone call, but perhaps we understand it as something serious and significant, to be used in much more specific contexts and shared with a select group of people. We all have an inner circle who would be allowed to interrupt us for a chat when we’re in the middle of making jam. Everyone else will have to make do with a message.', 'label': 1, 'sentence': 'Wondering why that millennial won\'t take your phone call? Here\'s why ...Wondering why that millennial won\'t take your phone call? Here\'s why ... - When I was seven, I joined hen I was seven, I joined the Brownies . At the time, becoming part of Baden-Powell’s famous organisation felt very grown up. However, when I reflect on the experience, I realise that being a Brownie is worth doing only if you start when you’re very young. It’s full of peculiar rituals, and only now that I am 31, and no one incentivises me to do anything by offering me a special badge, do I recognise how odd some of them were We were given badges for applying bandages to our ungrazed knees, remembering to keep a sewing kit in the pockets of our culottes, and successfully using a payphone to make a call. I’ll always remember the day 24 Brownies were walked into the nearest village, and each given a 10pto call our mums and tell them that we were still at Brownies, everything was fine and that we would see them in 40 minutes. From that moment, I saw telephone conversations as exciting events. They were fraught with romance, glamour and danger, and could only be approached if you were under strict supervision, unless you were a proper adult. I would have been overwhelmed if anyone had predicted that when I was an adult, I would have a portable phone for my exclusive use. I think I would have collapsed with shock if I had been told that I could use it to read books, play games, argue with strangers and identify vaguely recognisable songs that were being played in bars. If someone had said that I’d barely bother to make calls at all, I’d have told them they were a liar. But it’s true. More than three-quarters of all adults in the UK own smartphones, but 25% don’t use them to make calls Can we blame millennials for the demise of the phone call? Most of the twenty- and thirtysomethings I socialise with would rather suck Donald Trump’s toe than make or receive a call in order to have a chat. We’re in touch with each other constantly, but written communication allows us to participate in the conversation at the pace we choose. We don’t have to worry about misreading anyone’s tone when the words are laid out in black and white. However, it seems that phone-call phobia definitely isn’t confined to a single generation. Jeremy Corbyn’s aides complained that they were unable to reach their boss on the telephone this week to discuss "traingate" because he was busy making jam Perhaps it’s not the phone calls themselves we object to, but the feeling of being ambushed by them Many millennials struggle with mental health, and we’ve been dubbed the "anxious generation" . As an anxiety sufferer, nothing fills me with dread and terror like a phone call from a withheld number. The trouble is that the issue exacerbates itself. Because we don’t call for chats, I assume that whenever anyone does try to reach me on the telephone, it’s because of a bad, sad, serious emergency and I need to be reached urgently, possibly for a telling off. So I fling the phone from my hand, as if it’s a live snake, and then get a voicemail from someone who was just ringing for a catch-up. "But it’s not urgent, we can just do it on WhatsApp." Perhaps it’s not phone calls themselves we object to, but the feeling of being ambushed by them. One worker in their 20s told the Wall Street Journal: "Calling someone without emailing first can make it seem as though you’re prioritising your needs over theirs." That’s right. The millennial attitude towards phone calls is actually about manners. We’ve grown up with so many methods of communication available to us, and we’ve gravitated towards the least intrusive ones because we know how it feels to be digitally prodded on a range of different channels. Speaking on the telephone is an event, and we don’t want to avoid it – we just need to be sure that both parties have a chance to prepare for it. We want a chance to compose and edit our thoughts, in the way we do when we’re writing them down. There is an element of mindfulness involved too. Thanks to our phones, we’re never doing nothing, and if we’re surprised by a phone call we might struggle to give the caller our full attention. If we know when to expect it, we can at least try to focus in a way that we’re not always capable of during other moments of our lives. It’s fair to say that young people can still see the value of a phone call, but perhaps we understand it as something serious and significant, to be used in much more specific contexts and shared with a select group of people. We all have an inner circle who would be allowed to interrupt us for a chat when we’re in the middle of making jam. Everyone else will have to make do with a message.', 'input_ids': [1, 34236, 314, 15, 33190, 474, 25, 38, 155, 29, 661, 398, 44, 651, 25, 12, 314, 677, 59767, 227, 314, 15, 33190, 474, 25, 38, 155, 29, 661, 398, 44, 651, 25, 12, 314, 677, 91, 220, 16, 28, 1617, 6, 16, 2055, 25115, 16, 28, 1617, 6, 16, 2055, 5, 80733, 65, 356, 5, 66, 6, 1845, 203, 9, 45492, 18, 110784, 20, 12, 1844, 4197, 914, 117, 2780, 62, 4, 407, 6, 76, 16, 3260, 21, 5, 241, 6, 16, 8335, 15, 157, 10, 63537, 13, 976, 381, 103, 75, 17, 303, 76, 17, 20, 115, 117, 607, 4, 64, 20, 12, 275, 9, 17402, 15866, 6, 7, 103, 136, 15, 16, 214, 5980, 7, 104, 54, 93902, 12, 89, 8, 71, 509, 35, 1354, 89, 10, 511, 9968, 6, 71, 16, 10205, 100, 4665, 85, 9, 88, 77, 82, 77, 482, 22270, 14, 3998, 49397, 8, 57, 1364, 22419, 39518, 8223, 6, 12251, 8, 285, 10, 8489, 3159, 11, 5, 6933, 9, 57, 13411, 69886, 12, 6, 7, 2734, 213, 10, 534, 14318, 8, 102, 10, 398, 4, 16, 20, 175, 221, 900, 5, 149, 1070, 80733, 77, 2775, 92, 5, 7356, 2486, 6, 7, 182, 482, 10, 257, 40685, 398, 57, 34325, 7, 565, 88, 15, 42, 77, 188, 33, 80733, 6, 478, 28, 1087, 7, 15, 42, 80, 137, 88, 11, 1298, 498, 4, 695, 15, 887, 6, 16, 798, 4190, 5177, 27, 2098, 693, 4, 187, 77, 34968, 19, 6729, 6, 22354, 7, 4554, 6, 7, 132, 103, 26, 6980, 75, 17, 77, 240, 6269, 8711, 6, 1998, 17, 77, 10, 1877, 2477, 4, 16, 80, 30, 74, 9660, 75, 720, 73, 7306, 15, 76, 16, 28, 41, 2477, 6, 16, 80, 30, 10, 4995, 661, 14, 50, 2899, 118, 4, 16, 171, 16, 80, 30, 13429, 19, 4961, 75, 16, 73, 74, 544, 15, 16, 132, 118, 22, 8, 341, 802, 6, 368, 646, 6, 4894, 19, 10865, 7, 2005, 24318, 42715, 2053, 15, 77, 157, 1119, 11, 3801, 4, 110, 483, 73, 129, 15, 16, 20, 147, 4838, 7392, 8, 102, 1892, 33, 46, 6, 16, 20, 147, 30, 544, 88, 49, 77, 10, 27129, 4, 167, 22, 20, 12, 684, 4, 1089, 97, 225, 18, 32934, 9, 46, 2314, 11, 5, 952, 186, 9330, 6, 47, 8368, 153, 20, 38, 118, 88, 8, 102, 1892, 854, 42, 5157, 24136, 14, 5, 17862, 9, 5, 661, 398, 44, 945, 9, 5, 3449, 18, 7, 5765, 12676, 12, 16, 70375, 19, 80, 617, 40962, 4139, 1291, 20, 12, 8, 208, 97, 102, 31, 784, 10, 398, 11, 288, 8, 30, 10, 3293, 4, 82, 20, 115, 11, 1350, 19, 182, 81, 2739, 6, 47, 905, 1663, 955, 120, 8, 2698, 11, 5, 2265, 33, 5, 3685, 42, 679, 4, 82, 153, 20, 38, 30, 8, 2219, 56, 104848, 720, 20, 12, 3721, 76, 5, 714, 24, 3842, 61, 11, 668, 7, 602, 4, 407, 6, 22, 717, 15, 661, 18, 13738, 48005, 1131, 663, 20, 38, 13263, 8, 10, 501, 2084, 4, 9562, 2], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}.
+08/03/2023 19:24:14 - INFO - __main__ - Sample 456 of the training set: {'id': 982, 'context': 'Who are the European Golden Boy winners since 2003 – and what happened to them?Who are the European Golden Boy winners since 2003 – and what happened to them? - 12 min ago Topics comments With this year’s 40-man shortlist for the annual award having been announced, Joe Brewin and Greg Lea look at where its previous winners wound up 2003: Rafael van der Vaart (Ajax) " In 2008 he was snapped up by Real Madrid for €13m, spent two trophyless seasons in the Spanish capital and then moved to Tottenham, where he was a popular figure for two campaigns before re-joining Hamburg . . Van der Vaart was earmarked for greatness from very early on in his career. Having honed his skills on the streets of Amsterdam close to the trailer park he grew up in, he was scooped up by Ajax aged 10 and moulded into the technically excellent player who would leave them 12 years later for Hamburg. The Dutchman was a first-team regular by the age of 17 and won the Eredivisie twice, in 2002 and 2004, establishing himself as a goalscoring midfielder with 14 league strikes in 2001/02 and another 18 the following campaign (from an injury-curtailed total of just 41 appearances altogether). Van der Vaart gets a shot off before being closed down by Scotland\'s Barry Ferguson in 2003 Those injuries took their toll. Van der Vaart’s stock fell before his surprising 2005 switch to Hamburg – much to Johan Cruyff’s disgust, among others – but his move to northern Germany was a wise one. In 2008 he was snapped up by Real Madrid for €13m, spent two trophyless seasons in the Spanish capital and then moved to Tottenham , where he was a popular figure for two campaigns before re-joining Hamburg. That was the beginning of the end: Van der Vaart’s stock was falling in line with his club’s, and they followed up a seventh-place finish in 2013 by twice almost getting relegated. A move to Real Betis was even worse – he barely featured and left the La Liga strugglers after a year. He’s now in Denmark with FC Midtjylland after being linked with Reading during the summer. 2004: Wayne Rooney (Man United) " Major tournament success with England has always been elusive, though, despite Rooney breaking the all-time scoring record in 2015 and becoming his country’s most-capped outfielder in September 2016 . . Oh, for these days again Wazza. Having followed up two seasons in Everton’s first team with an excellent Euro 2004 for England, it was only a matter of time before the country’s golden boy moved on to bigger things. Newcastle wanted him; Manchester United got him for a shade over £25m – at the time a record for a player under 20. Under Fergie’s wing he achieved a Premier League-best haul of 11 goals in his debut campaign, then duly followed that with 10 more seasons of double figures (including two above the 25-mark), firing United to five title wins and a Champions League trinket in the process. Major tournament success with England has always been elusive, though, despite Rooney breaking the all-time scoring record in 2015 and becoming his country’s most-capped outfielder in September 2016. Both of those latter achievements have only masked a worryingly slide, however: Rooney hasn’t been quite right since the late Fergie years but has surely hit his nadir now, aged 30. Having played so poorly for so long and been recently dropped by Jose Mourinho, this time the decline looks terminal. 2005: Lionel Messi (Barcelona) " Messi at this point wasn’t the free-scoring freak of today, but his dribbling skills dropped jaws and he was already considered among the world’s best when he was barely out of his teens . . "I’d never seen anything like it from a teenager," cooed Fabio Capello after watching world football’s new boy wonder dismantle his experienced Juventus side in a summer 2005 pre-season friendly in Barcelona . "At the end of the game, I went up to Frank Rijkaard and asked to loan him for the season, because they already had three non-EU players [Messi was due to receive his Spanish passport the following month]. He just laughed and said: ‘No chance’." He’d finally arrived properly. Barça already knew what they had in the pint-sized prodigy, of course, but now everyone else was seeing it too. Messi at this point wasn’t the free-scoring freak of today, but his dribbling skills dropped jaws and he was already considered among the world’s best when he was barely out of his teens. Messi shows off the Golden Ball alongside Ronaldinho and Samuel Eto\'o, who finished first and third in the World Player of the Year "Best in the world? I’m not even the best at Barça," chuckled Brazilian great Ronaldinho to FFT in late 2005 – but he really wasn’t joking. The buck-toothed trickster’s brilliance was mesmeric but frustratingly fleeting, unlike Messi who\'s lasted the course and somehow got better with age. Eight La Liga titles with Barcelona and another four in the Champions League only tell a portion of the story of a player who\'s scored 461 goals in 539 games for his only club. At 29 he’s still just as frightening. 2006: Cesc Fabregas (Arsenal) Chucked into Arsenal ’s first team at 16 three years earlier, Fabregas became a regular in Arsene Wenger’s side from the following season onwards, playing alongside the seasoned likes of Gilberto Silva and Patrick Vieira. The Spaniard arguably goes down as Wenger’s greatest student to date; a player who was forced to take on a great weight of responsibility after Vieira’s departure to Juventus in 2005 and duly responded with consistently impressive performances. By the time of his Golden Boy win in 2006, aged 19, he was already over three-quarters of the way to 100 appearances in the Premier League. But the trophies never came. Fabregas had lifted the FA Cup in 2005 but didn’t get to taste success with Arsenal again, so duly returned home to Barcelona in 2011 to win La Liga (but not the Champions League) in 2013. His homecoming hardly went to plan, though, and a 2014 switch to Chelsea was right for all parties. Things haven’t really been the same since the first half of his debut season at Stamford Bridge. Next: Better than Kleberson? (OK, fine)', 'label': 0, 'sentence': 'Who are the European Golden Boy winners since 2003 – and what happened to them?Who are the European Golden Boy winners since 2003 – and what happened to them? - 12 min ago Topics comments With this year’s 40-man shortlist for the annual award having been announced, Joe Brewin and Greg Lea look at where its previous winners wound up 2003: Rafael van der Vaart (Ajax) " In 2008 he was snapped up by Real Madrid for €13m, spent two trophyless seasons in the Spanish capital and then moved to Tottenham, where he was a popular figure for two campaigns before re-joining Hamburg . . Van der Vaart was earmarked for greatness from very early on in his career. Having honed his skills on the streets of Amsterdam close to the trailer park he grew up in, he was scooped up by Ajax aged 10 and moulded into the technically excellent player who would leave them 12 years later for Hamburg. The Dutchman was a first-team regular by the age of 17 and won the Eredivisie twice, in 2002 and 2004, establishing himself as a goalscoring midfielder with 14 league strikes in 2001/02 and another 18 the following campaign (from an injury-curtailed total of just 41 appearances altogether). Van der Vaart gets a shot off before being closed down by Scotland\'s Barry Ferguson in 2003 Those injuries took their toll. Van der Vaart’s stock fell before his surprising 2005 switch to Hamburg – much to Johan Cruyff’s disgust, among others – but his move to northern Germany was a wise one. In 2008 he was snapped up by Real Madrid for €13m, spent two trophyless seasons in the Spanish capital and then moved to Tottenham , where he was a popular figure for two campaigns before re-joining Hamburg. That was the beginning of the end: Van der Vaart’s stock was falling in line with his club’s, and they followed up a seventh-place finish in 2013 by twice almost getting relegated. A move to Real Betis was even worse – he barely featured and left the La Liga strugglers after a year. He’s now in Denmark with FC Midtjylland after being linked with Reading during the summer. 2004: Wayne Rooney (Man United) " Major tournament success with England has always been elusive, though, despite Rooney breaking the all-time scoring record in 2015 and becoming his country’s most-capped outfielder in September 2016 . . Oh, for these days again Wazza. Having followed up two seasons in Everton’s first team with an excellent Euro 2004 for England, it was only a matter of time before the country’s golden boy moved on to bigger things. Newcastle wanted him; Manchester United got him for a shade over £25m – at the time a record for a player under 20. Under Fergie’s wing he achieved a Premier League-best haul of 11 goals in his debut campaign, then duly followed that with 10 more seasons of double figures (including two above the 25-mark), firing United to five title wins and a Champions League trinket in the process. Major tournament success with England has always been elusive, though, despite Rooney breaking the all-time scoring record in 2015 and becoming his country’s most-capped outfielder in September 2016. Both of those latter achievements have only masked a worryingly slide, however: Rooney hasn’t been quite right since the late Fergie years but has surely hit his nadir now, aged 30. Having played so poorly for so long and been recently dropped by Jose Mourinho, this time the decline looks terminal. 2005: Lionel Messi (Barcelona) " Messi at this point wasn’t the free-scoring freak of today, but his dribbling skills dropped jaws and he was already considered among the world’s best when he was barely out of his teens . . "I’d never seen anything like it from a teenager," cooed Fabio Capello after watching world football’s new boy wonder dismantle his experienced Juventus side in a summer 2005 pre-season friendly in Barcelona . "At the end of the game, I went up to Frank Rijkaard and asked to loan him for the season, because they already had three non-EU players [Messi was due to receive his Spanish passport the following month]. He just laughed and said: ‘No chance’." He’d finally arrived properly. Barça already knew what they had in the pint-sized prodigy, of course, but now everyone else was seeing it too. Messi at this point wasn’t the free-scoring freak of today, but his dribbling skills dropped jaws and he was already considered among the world’s best when he was barely out of his teens. Messi shows off the Golden Ball alongside Ronaldinho and Samuel Eto\'o, who finished first and third in the World Player of the Year "Best in the world? I’m not even the best at Barça," chuckled Brazilian great Ronaldinho to FFT in late 2005 – but he really wasn’t joking. The buck-toothed trickster’s brilliance was mesmeric but frustratingly fleeting, unlike Messi who\'s lasted the course and somehow got better with age. Eight La Liga titles with Barcelona and another four in the Champions League only tell a portion of the story of a player who\'s scored 461 goals in 539 games for his only club. At 29 he’s still just as frightening. 2006: Cesc Fabregas (Arsenal) Chucked into Arsenal ’s first team at 16 three years earlier, Fabregas became a regular in Arsene Wenger’s side from the following season onwards, playing alongside the seasoned likes of Gilberto Silva and Patrick Vieira. The Spaniard arguably goes down as Wenger’s greatest student to date; a player who was forced to take on a great weight of responsibility after Vieira’s departure to Juventus in 2005 and duly responded with consistently impressive performances. By the time of his Golden Boy win in 2006, aged 19, he was already over three-quarters of the way to 100 appearances in the Premier League. But the trophies never came. Fabregas had lifted the FA Cup in 2005 but didn’t get to taste success with Arsenal again, so duly returned home to Barcelona in 2011 to win La Liga (but not the Champions League) in 2013. His homecoming hardly went to plan, though, and a 2014 switch to Chelsea was right for all parties. Things haven’t really been the same since the first half of his debut season at Stamford Bridge. Next: Better than Kleberson? (OK, fine)', 'input_ids': [1, 1548, 24, 5, 1333, 4308, 6193, 5396, 262, 4832, 119, 7, 79, 1397, 8, 88, 44, 11553, 24, 5, 1333, 4308, 6193, 5396, 262, 4832, 119, 7, 79, 1397, 8, 88, 44, 91, 515, 5118, 577, 15385, 1469, 292, 32, 145, 20, 12, 17654, 957, 34491, 14, 5, 1523, 2079, 326, 74, 1481, 6, 3048, 21424, 282, 7, 7198, 22592, 207, 33, 141, 107, 1161, 5396, 7330, 62, 4832, 43, 23565, 3884, 4634, 9558, 4560, 36, 291, 65590, 53, 55, 84, 2848, 58, 28, 14800, 62, 35, 2558, 9283, 14, 29596, 678, 99, 6, 1187, 122, 13369, 2334, 4656, 11, 5, 3061, 1733, 7, 130, 1322, 8, 25093, 6, 141, 58, 28, 10, 833, 1525, 14, 122, 4928, 159, 682, 18, 81336, 19471, 65, 65, 3858, 4634, 9558, 4560, 28, 45939, 14, 18564, 34, 117, 480, 21, 11, 60, 977, 4, 2682, 32596, 60, 867, 21, 5, 3417, 9, 9741, 574, 8, 5, 5016, 1734, 58, 2845, 62, 11, 6, 58, 28, 39720, 62, 35, 26986, 4551, 257, 7, 42083, 92, 5, 9296, 1045, 1255, 70, 80, 745, 88, 515, 135, 481, 14, 19471, 4, 23, 65853, 28, 10, 108, 18, 14087, 1197, 35, 5, 627, 9, 1427, 7, 474, 5, 546, 115, 92343, 12, 1821, 2531, 6, 11, 5415, 7, 10163, 6950, 1149, 27, 10, 1009, 37396, 17751, 19, 1067, 3375, 7827, 11, 5572, 50707, 7, 242, 1040, 5, 524, 1415, 36, 4708, 41, 2133, 18, 23736, 30765, 799, 9, 87, 6468, 8499, 8239, 142, 3858, 4634, 9558, 4560, 1199, 10, 1483, 185, 159, 157, 1923, 184, 35, 4380, 25, 12, 9136, 15298, 11, 4832, 2110, 3436, 440, 51, 8, 175, 4, 3858, 4634, 9558, 4560, 20, 12, 1218, 2540, 159, 60, 5500, 4121, 2543, 8, 19471, 119, 140, 8, 32209, 28066, 331, 9943, 20, 12, 27283, 6, 639, 415, 119, 47, 60, 582, 8, 4497, 2242, 28, 10, 4777, 54, 4, 84, 2848, 58, 28, 14800, 62, 35, 2558, 9283, 14, 29596, 678, 99, 6, 1187, 122, 13369, 2334, 4656, 11, 5, 3061, 1733, 7, 130, 1322, 8, 25093, 101, 141, 58, 28, 10, 833, 1525, 14, 122, 4928, 159, 682, 18, 81336, 19471, 4, 251, 28, 5, 1246, 9, 5, 255, 43, 3858, 4634, 9558, 4560, 20, 12, 1218, 28, 3795, 11, 416, 19, 60, 1608, 20, 12, 6, 7, 49, 1452, 62, 10, 8801, 18, 10836, 1419, 11, 1919, 35, 2531, 555, 377, 28566, 4, 78, 582, 8, 2558, 1163, 13713, 28, 144, 2416, 119, 58, 4838, 2842, 7, 347, 5, 1762, 30227, 3245, 3323, 139, 10, 145, 4, 133, 20, 12, 136, 11, 10007, 19, 8169, 6789, 38, 88402, 175, 431, 139, 157, 3265, 19, 5714, 232, 5, 932, 4, 4571, 43, 7624, 32771, 36, 7375, 549, 53, 55, 5682, 4333, 937, 19, 1837, 45, 221, 74, 19011, 6, 379, 6, 2009, 32771, 3879, 5, 46, 18, 1215, 5877, 941, 11, 1558, 7, 1845, 60, 433, 20, 12, 112, 18, 45430, 42510, 11, 1130, 1343, 65, 65, 1895, 6, 14, 116, 281, 279, 1143, 47923, 4, 2682, 1452, 62, 122, 4656, 11, 28293, 20, 12, 2], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}.
+08/03/2023 19:24:14 - INFO - __main__ - Sample 102 of the training set: {'id': 3023, 'context': '9 people who discovered just how terrible their exes really are9 people who discovered just how terrible their exes really are The list - That moment of clarity where you realise you’re way better off out of your previous relationship is worth all of the evenings spent crying into pizza. So if you\'re going through a breakup right now, we have the perfect support for you. A group of people have taken to anonymous confession website Whisper to share their moment of closure and sweet, sweet relief. Here are some of the best:   [I] Saw my ex on an episode of Cops. I dodged a bullet for sure. Found out my ex voted for Trump... Never been more glad we broke up. Got a bank statement for my ex. So glad we broke up. She is too old to be that shitty with money. My ex got matching name tattoos with her fiancé of three months.  My ex-boyfriend feared his future kids would turn out gay/lesbian. Thank God we broke up. I re-read screenshots from the end of my last relationship. I didn’t realise how insane and borderline abusive my ex was at the time – so glad to say I’m at least ten times happier now. I ran into my ex, who casually mentioned that he was high from Windex. I’m so glad I ended that relationship. My ex-boyfriend thinks I "got cancer" to get his attention. Yes I gave myself cancer so you would pay attention to me. I’m so glad we broke up. On a friend’s Snapchat I saw my ex so drunk he was unconscious and had dicks drawn on his face... While I’m over here planning my wedding. Oh boy, I dodged a bullet. He hasn’t changed.', 'label': 0, 'sentence': '9 people who discovered just how terrible their exes really are9 people who discovered just how terrible their exes really are The list - That moment of clarity where you realise you’re way better off out of your previous relationship is worth all of the evenings spent crying into pizza. So if you\'re going through a breakup right now, we have the perfect support for you. A group of people have taken to anonymous confession website Whisper to share their moment of closure and sweet, sweet relief. Here are some of the best:   [I] Saw my ex on an episode of Cops. I dodged a bullet for sure. Found out my ex voted for Trump... Never been more glad we broke up. Got a bank statement for my ex. So glad we broke up. She is too old to be that shitty with money. My ex got matching name tattoos with her fiancé of three months.  My ex-boyfriend feared his future kids would turn out gay/lesbian. Thank God we broke up. I re-read screenshots from the end of my last relationship. I didn’t realise how insane and borderline abusive my ex was at the time – so glad to say I’m at least ten times happier now. I ran into my ex, who casually mentioned that he was high from Windex. I’m so glad I ended that relationship. My ex-boyfriend thinks I "got cancer" to get his attention. Yes I gave myself cancer so you would pay attention to me. I’m so glad we broke up. On a friend’s Snapchat I saw my ex so drunk he was unconscious and had dicks drawn on his face... While I’m over here planning my wedding. Oh boy, I dodged a bullet. He hasn’t changed.', 'input_ids': [1, 728, 98, 70, 2260, 87, 100, 4506, 51, 41881, 12, 172, 24, 2577, 98, 70, 2260, 87, 100, 4506, 51, 41881, 12, 172, 24, 23, 405, 91, 251, 887, 9, 7195, 141, 17, 8335, 17, 20, 115, 123, 233, 185, 61, 9, 29, 1161, 1059, 13, 976, 46, 9, 5, 11832, 1187, 7741, 92, 5303, 4, 211, 75, 17, 25, 115, 189, 131, 10, 26773, 164, 136, 6, 42, 30, 5, 512, 264, 14, 17, 4, 78, 343, 9, 98, 30, 615, 8, 9107, 20106, 344, 38665, 8, 490, 51, 887, 9, 7910, 7, 1803, 6, 1803, 3243, 4, 651, 24, 85, 9, 5, 151, 43, 476, 235, 552, 14144, 50, 3319, 21, 41, 2592, 9, 58429, 4, 16, 59206, 10, 9323, 14, 254, 4, 12378, 61, 50, 3319, 5181, 14, 1291, 263, 4414, 74, 52, 2502, 42, 3762, 62, 4, 6977, 10, 1636, 1513, 14, 50, 3319, 4, 211, 2502, 42, 3762, 62, 4, 246, 13, 196, 323, 8, 26, 15, 109194, 19, 319, 4, 295, 3319, 260, 4753, 329, 17687, 19, 86, 36487, 9, 225, 489, 4, 295, 3319, 18, 48802, 13584, 60, 457, 696, 80, 659, 61, 4469, 96, 108518, 4, 1052, 339, 42, 3762, 62, 4, 16, 682, 18, 7907, 19110, 34, 5, 255, 9, 50, 190, 1059, 4, 16, 335, 20, 38, 8335, 100, 10643, 7, 32750, 14424, 50, 3319, 28, 33, 5, 66, 119, 63, 2502, 8, 253, 16, 20, 99, 33, 404, 1705, 367, 9306, 136, 4, 16, 2311, 92, 50, 3319, 6, 70, 21789, 1681, 15, 58, 28, 201, 34, 1143, 13334, 4, 16, 20, 99, 63, 2502, 16, 1873, 15, 1059, 4, 295, 3319, 18, 48802, 5351, 16, 55, 19327, 1495, 109, 8, 90, 60, 960, 4, 1270, 16, 1032, 806, 1495, 63, 17, 80, 534, 960, 8, 89, 4, 16, 20, 99, 63, 2502, 42, 3762, 62, 4, 333, 10, 865, 20, 12, 21297, 16, 798, 50, 3319, 63, 8640, 58, 28, 13867, 7, 73, 83249, 3713, 21, 60, 548, 263, 547, 16, 20, 99, 105, 160, 1141, 50, 1454, 4, 1895, 2149, 6, 16, 59206, 10, 9323, 4, 133, 3546, 20, 38, 1307, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+08/03/2023 19:24:14 - INFO - __main__ - Using metric accuracy for evaluation.
+[INFO|trainer.py:749] 2023-08-03 19:24:16,467 >> The following columns in the training set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:1681] 2023-08-03 19:24:16,477 >> ***** Running training *****
+[INFO|trainer.py:1682] 2023-08-03 19:24:16,477 >>   Num examples = 3,200
+[INFO|trainer.py:1683] 2023-08-03 19:24:16,477 >>   Num Epochs = 8
+[INFO|trainer.py:1684] 2023-08-03 19:24:16,477 >>   Instantaneous batch size per device = 16
+[INFO|trainer.py:1687] 2023-08-03 19:24:16,477 >>   Total train batch size (w. parallel, distributed & accumulation) = 64
+[INFO|trainer.py:1688] 2023-08-03 19:24:16,477 >>   Gradient Accumulation steps = 4
+[INFO|trainer.py:1689] 2023-08-03 19:24:16,477 >>   Total optimization steps = 400
+[INFO|trainer.py:1690] 2023-08-03 19:24:16,478 >>   Number of trainable parameters = 886,958,595
+[INFO|integrations.py:716] 2023-08-03 19:24:16,485 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: ym_k. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.7
+wandb: Run data is saved locally in /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task-1/wandb/run-20230803_192417-i3f0kg84
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run task1-deberta-v2-xlarge-mnli
+wandb: ⭐️ View project at https://wandb.ai/ym_k/huggingface
+wandb: 🚀 View run at https://wandb.ai/ym_k/huggingface/runs/i3f0kg84
+  0%|          | 0/400 [00:00<?, ?it/s]  0%|          | 1/400 [00:12<1:22:11, 12.36s/it]  0%|          | 2/400 [00:23<1:18:05, 11.77s/it]  1%|          | 3/400 [00:35<1:16:45, 11.60s/it]  1%|          | 4/400 [00:46<1:16:07, 11.54s/it]  1%|▏         | 5/400 [00:58<1:15:46, 11.51s/it]  2%|▏         | 6/400 [01:09<1:15:30, 11.50s/it]  2%|▏         | 7/400 [01:21<1:15:22, 11.51s/it]  2%|▏         | 8/400 [01:32<1:15:10, 11.51s/it]  2%|▏         | 9/400 [01:44<1:15:01, 11.51s/it]  2%|▎         | 10/400 [01:55<1:14:51, 11.52s/it]  3%|▎         | 11/400 [02:07<1:14:40, 11.52s/it]  3%|▎         | 12/400 [02:18<1:14:32, 11.53s/it]  3%|▎         | 13/400 [02:30<1:14:17, 11.52s/it]  4%|▎         | 14/400 [02:41<1:14:05, 11.52s/it]  4%|▍         | 15/400 [02:53<1:13:55, 11.52s/it]  4%|▍         | 16/400 [03:04<1:13:42, 11.52s/it]  4%|▍         | 17/400 [03:16<1:13:30, 11.52s/it]  4%|▍         | 18/400 [03:27<1:13:19, 11.52s/it]  5%|▍         | 19/400 [03:39<1:13:10, 11.52s/it]  5%|▌         | 20/400 [03:50<1:12:58, 11.52s/it]  5%|▌         | 21/400 [04:02<1:12:46, 11.52s/it]  6%|▌         | 22/400 [04:13<1:12:36, 11.53s/it]  6%|▌         | 23/400 [04:25<1:12:22, 11.52s/it]  6%|▌         | 24/400 [04:36<1:12:09, 11.51s/it]  6%|▋         | 25/400 [04:48<1:11:58, 11.52s/it]  6%|▋         | 26/400 [04:59<1:11:45, 11.51s/it]  7%|▋         | 27/400 [05:11<1:11:34, 11.51s/it]  7%|▋         | 28/400 [05:22<1:11:20, 11.51s/it]  7%|▋         | 29/400 [05:34<1:11:10, 11.51s/it]  8%|▊         | 30/400 [05:45<1:10:58, 11.51s/it]  8%|▊         | 31/400 [05:57<1:10:48, 11.51s/it]  8%|▊         | 32/400 [06:08<1:10:35, 11.51s/it]  8%|▊         | 33/400 [06:20<1:10:22, 11.51s/it]  8%|▊         | 34/400 [06:31<1:10:11, 11.51s/it]  9%|▉         | 35/400 [06:43<1:10:01, 11.51s/it]  9%|▉         | 36/400 [06:54<1:09:50, 11.51s/it]  9%|▉         | 37/400 [07:06<1:09:36, 11.51s/it] 10%|▉         | 38/400 [07:17<1:09:25, 11.51s/it] 10%|▉         | 39/400 [07:29<1:09:15, 11.51s/it] 10%|█         | 40/400 [07:40<1:09:03, 11.51s/it] 10%|█         | 41/400 [07:52<1:08:53, 11.51s/it] 10%|█         | 42/400 [08:04<1:08:41, 11.51s/it] 11%|█         | 43/400 [08:15<1:08:28, 11.51s/it] 11%|█         | 44/400 [08:27<1:08:18, 11.51s/it] 11%|█▏        | 45/400 [08:38<1:08:05, 11.51s/it] 12%|█▏        | 46/400 [08:50<1:07:52, 11.51s/it] 12%|█▏        | 47/400 [09:01<1:07:41, 11.51s/it] 12%|█▏        | 48/400 [09:13<1:07:31, 11.51s/it] 12%|█▏        | 49/400 [09:24<1:07:19, 11.51s/it] 12%|█▎        | 50/400 [09:36<1:07:05, 11.50s/it][INFO|trainer.py:749] 2023-08-03 19:33:57,940 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 19:33:57,942 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 19:33:57,942 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 19:33:57,942 >>   Batch size = 8
+
+  0%|          | 0/50 [00:00<?, ?it/s][A
+  4%|▍         | 2/50 [00:00<00:12,  3.94it/s][A
+  6%|▌         | 3/50 [00:01<00:16,  2.78it/s][A
+  8%|▊         | 4/50 [00:01<00:19,  2.41it/s][A
+ 10%|█         | 5/50 [00:02<00:20,  2.23it/s][A
+ 12%|█▏        | 6/50 [00:02<00:20,  2.13it/s][A
+ 14%|█▍        | 7/50 [00:03<00:20,  2.08it/s][A
+ 16%|█▌        | 8/50 [00:03<00:20,  2.04it/s][A
+ 18%|█▊        | 9/50 [00:04<00:20,  2.02it/s][A
+ 20%|██        | 10/50 [00:04<00:19,  2.00it/s][A
+ 22%|██▏       | 11/50 [00:05<00:19,  1.99it/s][A
+ 24%|██▍       | 12/50 [00:05<00:19,  1.98it/s][A
+ 26%|██▌       | 13/50 [00:06<00:18,  1.97it/s][A
+ 28%|██▊       | 14/50 [00:06<00:18,  1.97it/s][A
+ 30%|███       | 15/50 [00:07<00:17,  1.97it/s][A
+ 32%|███▏      | 16/50 [00:07<00:17,  1.97it/s][A
+ 34%|███▍      | 17/50 [00:08<00:16,  1.97it/s][A
+ 36%|███▌      | 18/50 [00:08<00:16,  1.97it/s][A
+ 38%|███▊      | 19/50 [00:09<00:15,  1.97it/s][A
+ 40%|████      | 20/50 [00:09<00:15,  1.97it/s][A
+ 42%|████▏     | 21/50 [00:10<00:14,  1.98it/s][A
+ 44%|████▍     | 22/50 [00:10<00:14,  1.97it/s][A
+ 46%|████▌     | 23/50 [00:11<00:13,  1.97it/s][A
+ 48%|████▊     | 24/50 [00:11<00:13,  1.97it/s][A
+ 50%|█████     | 25/50 [00:12<00:12,  1.96it/s][A
+ 52%|█████▏    | 26/50 [00:12<00:12,  1.96it/s][A
+ 54%|█████▍    | 27/50 [00:13<00:11,  1.96it/s][A
+ 56%|█████▌    | 28/50 [00:13<00:11,  1.97it/s][A
+ 58%|█████▊    | 29/50 [00:14<00:10,  1.97it/s][A
+ 60%|██████    | 30/50 [00:14<00:10,  1.97it/s][A
+ 62%|██████▏   | 31/50 [00:15<00:09,  1.96it/s][A
+ 64%|██████▍   | 32/50 [00:15<00:09,  1.97it/s][A
+ 66%|██████▌   | 33/50 [00:16<00:08,  1.96it/s][A
+ 68%|██████▊   | 34/50 [00:16<00:08,  1.96it/s][A
+ 70%|███████   | 35/50 [00:17<00:07,  1.96it/s][A
+ 72%|███████▏  | 36/50 [00:17<00:07,  1.96it/s][A
+ 74%|███████▍  | 37/50 [00:18<00:06,  1.96it/s][A
+ 76%|███████▌  | 38/50 [00:18<00:06,  1.96it/s][A
+ 78%|███████▊  | 39/50 [00:19<00:05,  1.96it/s][A
+ 80%|████████  | 40/50 [00:19<00:05,  1.96it/s][A
+ 82%|████████▏ | 41/50 [00:20<00:04,  1.96it/s][A
+ 84%|████████▍ | 42/50 [00:20<00:04,  1.96it/s][A
+ 86%|████████▌ | 43/50 [00:21<00:03,  1.96it/s][A
+ 88%|████████▊ | 44/50 [00:21<00:03,  1.97it/s][A
+ 90%|█████████ | 45/50 [00:22<00:02,  1.97it/s][A
+ 92%|█████████▏| 46/50 [00:22<00:02,  1.97it/s][A
+ 94%|█████████▍| 47/50 [00:23<00:01,  1.97it/s][A
+ 96%|█████████▌| 48/50 [00:23<00:01,  1.97it/s][A
+ 98%|█████████▊| 49/50 [00:24<00:00,  1.97it/s][A
+100%|██████████| 50/50 [00:24<00:00,  1.97it/s][A                                                  
+                                               [A 12%|█▎        | 50/400 [10:01<1:07:05, 11.50s/it]
+100%|██████████| 50/50 [00:24<00:00,  1.97it/s][A
+                                               [A 13%|█▎        | 51/400 [10:13<1:51:19, 19.14s/it] 13%|█▎        | 52/400 [10:24<1:37:45, 16.85s/it] 13%|█▎        | 53/400 [10:36<1:28:09, 15.24s/it] 14%|█▎        | 54/400 [10:47<1:21:26, 14.12s/it] 14%|█▍        | 55/400 [10:59<1:16:40, 13.33s/it] 14%|█▍        | 56/400 [11:10<1:13:18, 12.79s/it] 14%|█▍        | 57/400 [11:22<1:10:54, 12.40s/it] 14%|█▍        | 58/400 [11:33<1:09:09, 12.13s/it] 15%|█▍        | 59/400 [11:45<1:07:52, 11.94s/it] 15%|█▌        | 60/400 [11:56<1:06:55, 11.81s/it] 15%|█▌        | 61/400 [12:08<1:06:10, 11.71s/it] 16%|█▌        | 62/400 [12:19<1:05:38, 11.65s/it] 16%|█▌        | 63/400 [12:31<1:05:11, 11.61s/it] 16%|█▌        | 64/400 [12:42<1:04:48, 11.57s/it] 16%|█▋        | 65/400 [12:54<1:04:30, 11.55s/it] 16%|█▋        | 66/400 [13:05<1:04:14, 11.54s/it] 17%|█▋        | 67/400 [13:17<1:04:01, 11.54s/it] 17%|█▋        | 68/400 [13:28<1:03:48, 11.53s/it] 17%|█▋        | 69/400 [13:40<1:03:34, 11.52s/it] 18%|█▊        | 70/400 [13:51<1:03:20, 11.52s/it] 18%|█▊        | 71/400 [14:03<1:03:08, 11.51s/it] 18%|█▊        | 72/400 [14:14<1:02:57, 11.52s/it] 18%|█▊        | 73/400 [14:26<1:02:44, 11.51s/it] 18%|█▊        | 74/400 [14:37<1:02:33, 11.51s/it] 19%|█▉        | 75/400 [14:49<1:02:21, 11.51s/it] 19%|█▉        | 76/400 [15:00<1:02:06, 11.50s/it] 19%|█▉        | 77/400 [15:12<1:01:55, 11.50s/it] 20%|█▉        | 78/400 [15:23<1:01:44, 11.51s/it] 20%|█▉        | 79/400 [15:35<1:01:33, 11.51s/it] 20%|██        | 80/400 [15:46<1:01:23, 11.51s/it] 20%|██        | 81/400 [15:58<1:01:12, 11.51s/it] 20%|██        | 82/400 [16:09<1:01:00, 11.51s/it] 21%|██        | 83/400 [16:21<1:00:50, 11.51s/it] 21%|██        | 84/400 [16:32<1:00:35, 11.51s/it] 21%|██▏       | 85/400 [16:44<1:00:23, 11.50s/it] 22%|██▏       | 86/400 [16:55<1:00:13, 11.51s/it] 22%|██▏       | 87/400 [17:07<1:00:01, 11.50s/it] 22%|██▏       | 88/400 [17:18<59:49, 11.50s/it]   22%|██▏       | 89/400 [17:30<59:36, 11.50s/it] 22%|██▎       | 90/400 [17:41<59:26, 11.51s/it] 23%|██▎       | 91/400 [17:53<59:15, 11.51s/it] 23%|██▎       | 92/400 [18:04<59:04, 11.51s/it] 23%|██▎       | 93/400 [18:16<58:52, 11.51s/it] 24%|██▎       | 94/400 [18:27<58:41, 11.51s/it] 24%|██▍       | 95/400 [18:39<58:29, 11.51s/it] 24%|██▍       | 96/400 [18:50<58:18, 11.51s/it] 24%|██▍       | 97/400 [19:02<58:06, 11.51s/it] 24%|██▍       | 98/400 [19:13<57:55, 11.51s/it] 25%|██▍       | 99/400 [19:25<57:42, 11.50s/it] 25%|██▌       | 100/400 [19:36<57:29, 11.50s/it][INFO|trainer.py:749] 2023-08-03 19:43:58,667 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 19:43:58,669 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 19:43:58,669 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 19:43:58,669 >>   Batch size = 8
+{'eval_loss': 1.0231646299362183, 'eval_accuracy': 0.49, 'eval_runtime': 25.4891, 'eval_samples_per_second': 15.693, 'eval_steps_per_second': 1.962, 'epoch': 1.0}
+
+  0%|          | 0/50 [00:00<?, ?it/s][A
+  4%|▍         | 2/50 [00:00<00:12,  3.93it/s][A
+  6%|▌         | 3/50 [00:01<00:16,  2.79it/s][A
+  8%|▊         | 4/50 [00:01<00:19,  2.41it/s][A
+ 10%|█         | 5/50 [00:02<00:20,  2.24it/s][A
+ 12%|█▏        | 6/50 [00:02<00:20,  2.13it/s][A
+ 14%|█▍        | 7/50 [00:03<00:20,  2.08it/s][A
+ 16%|█▌        | 8/50 [00:03<00:20,  2.05it/s][A
+ 18%|█▊        | 9/50 [00:04<00:20,  2.02it/s][A
+ 20%|██        | 10/50 [00:04<00:19,  2.01it/s][A
+ 22%|██▏       | 11/50 [00:05<00:19,  1.99it/s][A
+ 24%|██▍       | 12/50 [00:05<00:19,  1.98it/s][A
+ 26%|██▌       | 13/50 [00:06<00:18,  1.98it/s][A
+ 28%|██▊       | 14/50 [00:06<00:18,  1.97it/s][A
+ 30%|███       | 15/50 [00:07<00:17,  1.97it/s][A
+ 32%|███▏      | 16/50 [00:07<00:17,  1.97it/s][A
+ 34%|███▍      | 17/50 [00:08<00:16,  1.97it/s][A
+ 36%|███▌      | 18/50 [00:08<00:16,  1.97it/s][A
+ 38%|███▊      | 19/50 [00:09<00:15,  1.98it/s][A
+ 40%|████      | 20/50 [00:09<00:15,  1.98it/s][A
+ 42%|████▏     | 21/50 [00:10<00:14,  1.98it/s][A
+ 44%|████▍     | 22/50 [00:10<00:14,  1.98it/s][A
+ 46%|████▌     | 23/50 [00:11<00:13,  1.97it/s][A
+ 48%|████▊     | 24/50 [00:11<00:13,  1.97it/s][A
+ 50%|█████     | 25/50 [00:12<00:12,  1.96it/s][A
+ 52%|█████▏    | 26/50 [00:12<00:12,  1.97it/s][A
+ 54%|█████▍    | 27/50 [00:13<00:11,  1.96it/s][A
+ 56%|█████▌    | 28/50 [00:13<00:11,  1.97it/s][A
+ 58%|█████▊    | 29/50 [00:14<00:10,  1.97it/s][A
+ 60%|██████    | 30/50 [00:14<00:10,  1.97it/s][A
+ 62%|██████▏   | 31/50 [00:15<00:09,  1.97it/s][A
+ 64%|██████▍   | 32/50 [00:15<00:09,  1.97it/s][A
+ 66%|██████▌   | 33/50 [00:16<00:08,  1.96it/s][A
+ 68%|██████▊   | 34/50 [00:16<00:08,  1.96it/s][A
+ 70%|███████   | 35/50 [00:17<00:07,  1.96it/s][A
+ 72%|███████▏  | 36/50 [00:17<00:07,  1.96it/s][A
+ 74%|███████▍  | 37/50 [00:18<00:06,  1.97it/s][A
+ 76%|███████▌  | 38/50 [00:18<00:06,  1.97it/s][A
+ 78%|███████▊  | 39/50 [00:19<00:05,  1.97it/s][A
+ 80%|████████  | 40/50 [00:19<00:05,  1.97it/s][A
+ 82%|████████▏ | 41/50 [00:20<00:04,  1.96it/s][A
+ 84%|████████▍ | 42/50 [00:20<00:04,  1.97it/s][A
+ 86%|████████▌ | 43/50 [00:21<00:03,  1.96it/s][A
+ 88%|████████▊ | 44/50 [00:21<00:03,  1.97it/s][A
+ 90%|█████████ | 45/50 [00:22<00:02,  1.97it/s][A
+ 92%|█████████▏| 46/50 [00:22<00:02,  1.97it/s][A
+ 94%|█████████▍| 47/50 [00:23<00:01,  1.97it/s][A
+ 96%|█████████▌| 48/50 [00:23<00:01,  1.97it/s][A
+ 98%|█████████▊| 49/50 [00:24<00:00,  1.97it/s][A
+100%|██████████| 50/50 [00:24<00:00,  1.97it/s][A                                                 
+                                               [A 25%|██▌       | 100/400 [20:02<57:29, 11.50s/it]
+100%|██████████| 50/50 [00:24<00:00,  1.97it/s][A
+                                               [A 25%|██▌       | 101/400 [20:13<1:35:21, 19.14s/it] 26%|██▌       | 102/400 [20:25<1:23:41, 16.85s/it] 26%|██▌       | 103/400 [20:36<1:15:27, 15.25s/it] 26%|██▌       | 104/400 [20:48<1:09:39, 14.12s/it] 26%|██▋       | 105/400 [20:59<1:05:33, 13.33s/it] 26%|██▋       | 106/400 [21:11<1:02:38, 12.78s/it] 27%|██▋       | 107/400 [21:22<1:00:32, 12.40s/it] 27%|██▋       | 108/400 [21:34<59:00, 12.12s/it]   27%|██▋       | 109/400 [21:45<57:53, 11.94s/it] 28%|██▊       | 110/400 [21:57<57:02, 11.80s/it] 28%|██▊       | 111/400 [22:08<56:21, 11.70s/it] 28%|██▊       | 112/400 [22:20<55:52, 11.64s/it] 28%|██▊       | 113/400 [22:31<55:28, 11.60s/it] 28%|██▊       | 114/400 [22:43<55:09, 11.57s/it] 29%|██▉       | 115/400 [22:54<54:52, 11.55s/it] 29%|██▉       | 116/400 [23:06<54:37, 11.54s/it] 29%|██▉       | 117/400 [23:17<54:23, 11.53s/it] 30%|██▉       | 118/400 [23:29<54:10, 11.53s/it] 30%|██▉       | 119/400 [23:40<53:56, 11.52s/it] 30%|███       | 120/400 [23:52<53:44, 11.52s/it] 30%|███       | 121/400 [24:03<53:32, 11.51s/it] 30%|███       | 122/400 [24:15<53:20, 11.51s/it] 31%|███       | 123/400 [24:26<53:09, 11.51s/it] 31%|███       | 124/400 [24:38<52:59, 11.52s/it] 31%|███▏      | 125/400 [24:49<52:48, 11.52s/it] 32%|███▏      | 126/400 [25:01<52:38, 11.53s/it] 32%|███▏      | 127/400 [25:12<52:28, 11.53s/it] 32%|███▏      | 128/400 [25:24<52:14, 11.52s/it] 32%|███▏      | 129/400 [25:35<52:02, 11.52s/it] 32%|███▎      | 130/400 [25:47<51:50, 11.52s/it] 33%|███▎      | 131/400 [25:59<51:38, 11.52s/it] 33%|███▎      | 132/400 [26:10<51:29, 11.53s/it] 33%|███▎      | 133/400 [26:22<51:18, 11.53s/it] 34%|███▎      | 134/400 [26:33<51:07, 11.53s/it] 34%|███▍      | 135/400 [26:45<50:58, 11.54s/it] 34%|███▍      | 136/400 [26:56<50:44, 11.53s/it] 34%|███▍      | 137/400 [27:08<50:35, 11.54s/it] 34%|███▍      | 138/400 [27:19<50:22, 11.54s/it] 35%|███▍      | 139/400 [27:31<50:11, 11.54s/it] 35%|███▌      | 140/400 [27:42<50:01, 11.54s/it] 35%|███▌      | 141/400 [27:54<49:48, 11.54s/it] 36%|███▌      | 142/400 [28:05<49:36, 11.54s/it] 36%|███▌      | 143/400 [28:17<49:25, 11.54s/it] 36%|███▌      | 144/400 [28:29<49:12, 11.53s/it] 36%|███▋      | 145/400 [28:40<49:02, 11.54s/it] 36%|███▋      | 146/400 [28:52<48:52, 11.54s/it] 37%|███▋      | 147/400 [29:03<48:39, 11.54s/it] 37%|███▋      | 148/400 [29:15<48:29, 11.55s/it] 37%|███▋      | 149/400 [29:26<48:16, 11.54s/it] 38%|███▊      | 150/400 [29:38<48:02, 11.53s/it][INFO|trainer.py:749] 2023-08-03 19:54:00,112 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 19:54:00,114 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 19:54:00,114 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 19:54:00,114 >>   Batch size = 8
+{'eval_loss': 0.805671751499176, 'eval_accuracy': 0.69, 'eval_runtime': 25.4681, 'eval_samples_per_second': 15.706, 'eval_steps_per_second': 1.963, 'epoch': 2.0}
+
+  0%|          | 0/50 [00:00<?, ?it/s][A
+  4%|▍         | 2/50 [00:00<00:12,  3.92it/s][A
+  6%|▌         | 3/50 [00:01<00:16,  2.77it/s][A
+  8%|▊         | 4/50 [00:01<00:19,  2.40it/s][A
+ 10%|█         | 5/50 [00:02<00:20,  2.23it/s][A
+ 12%|█▏        | 6/50 [00:02<00:20,  2.13it/s][A
+ 14%|█▍        | 7/50 [00:03<00:20,  2.07it/s][A
+ 16%|█▌        | 8/50 [00:03<00:20,  2.04it/s][A
+ 18%|█▊        | 9/50 [00:04<00:20,  2.01it/s][A
+ 20%|██        | 10/50 [00:04<00:19,  2.00it/s][A
+ 22%|██▏       | 11/50 [00:05<00:19,  1.98it/s][A
+ 24%|██▍       | 12/50 [00:05<00:19,  1.98it/s][A
+ 26%|██▌       | 13/50 [00:06<00:18,  1.97it/s][A
+ 28%|██▊       | 14/50 [00:06<00:18,  1.97it/s][A
+ 30%|███       | 15/50 [00:07<00:17,  1.96it/s][A
+ 32%|███▏      | 16/50 [00:07<00:17,  1.97it/s][A
+ 34%|███▍      | 17/50 [00:08<00:16,  1.97it/s][A
+ 36%|███▌      | 18/50 [00:08<00:16,  1.97it/s][A
+ 38%|███▊      | 19/50 [00:09<00:15,  1.97it/s][A
+ 40%|████      | 20/50 [00:09<00:15,  1.97it/s][A
+ 42%|████▏     | 21/50 [00:10<00:14,  1.97it/s][A
+ 44%|████▍     | 22/50 [00:10<00:14,  1.97it/s][A
+ 46%|████▌     | 23/50 [00:11<00:13,  1.96it/s][A
+ 48%|████▊     | 24/50 [00:11<00:13,  1.96it/s][A
+ 50%|█████     | 25/50 [00:12<00:12,  1.96it/s][A
+ 52%|█████▏    | 26/50 [00:12<00:12,  1.96it/s][A
+ 54%|█████▍    | 27/50 [00:13<00:11,  1.96it/s][A
+ 56%|█████▌    | 28/50 [00:13<00:11,  1.96it/s][A
+ 58%|█████▊    | 29/50 [00:14<00:10,  1.96it/s][A
+ 60%|██████    | 30/50 [00:14<00:10,  1.96it/s][A
+ 62%|██████▏   | 31/50 [00:15<00:09,  1.96it/s][A
+ 64%|██████▍   | 32/50 [00:15<00:09,  1.96it/s][A
+ 66%|██████▌   | 33/50 [00:16<00:08,  1.95it/s][A
+ 68%|██████▊   | 34/50 [00:16<00:08,  1.96it/s][A
+ 70%|███████   | 35/50 [00:17<00:07,  1.96it/s][A
+ 72%|███████▏  | 36/50 [00:17<00:07,  1.96it/s][A
+ 74%|███████▍  | 37/50 [00:18<00:06,  1.96it/s][A
+ 76%|███████▌  | 38/50 [00:18<00:06,  1.96it/s][A
+ 78%|███████▊  | 39/50 [00:19<00:05,  1.96it/s][A
+ 80%|████████  | 40/50 [00:19<00:05,  1.96it/s][A
+ 82%|████████▏ | 41/50 [00:20<00:04,  1.96it/s][A
+ 84%|████████▍ | 42/50 [00:20<00:04,  1.96it/s][A
+ 86%|████████▌ | 43/50 [00:21<00:03,  1.95it/s][A
+ 88%|████████▊ | 44/50 [00:21<00:03,  1.96it/s][A
+ 90%|█████████ | 45/50 [00:22<00:02,  1.96it/s][A
+ 92%|█████████▏| 46/50 [00:22<00:02,  1.96it/s][A
+ 94%|█████████▍| 47/50 [00:23<00:01,  1.96it/s][A
+ 96%|█████████▌| 48/50 [00:23<00:01,  1.96it/s][A
+ 98%|█████████▊| 49/50 [00:24<00:00,  1.96it/s][A
+100%|██████████| 50/50 [00:24<00:00,  1.97it/s][A                                                 
+                                               [A 38%|███▊      | 150/400 [30:03<48:02, 11.53s/it]
+100%|██████████| 50/50 [00:25<00:00,  1.97it/s][A
+                                               [A 38%|███▊      | 151/400 [30:15<1:19:39, 19.19s/it] 38%|███▊      | 152/400 [30:26<1:09:50, 16.90s/it] 38%|███▊      | 153/400 [30:38<1:02:55, 15.29s/it] 38%|███▊      | 154/400 [30:49<58:01, 14.15s/it]   39%|███▉      | 155/400 [31:01<54:32, 13.36s/it] 39%|███▉      | 156/400 [31:12<52:03, 12.80s/it] 39%|███▉      | 157/400 [31:24<50:16, 12.41s/it] 40%|███▉      | 158/400 [31:35<48:57, 12.14s/it] 40%|███▉      | 159/400 [31:47<48:01, 11.96s/it] 40%|████      | 160/400 [31:58<47:17, 11.82s/it] 40%|████      | 161/400 [32:10<46:43, 11.73s/it] 40%|████      | 162/400 [32:21<46:15, 11.66s/it] 41%|████      | 163/400 [32:33<45:52, 11.62s/it] 41%|████      | 164/400 [32:44<45:32, 11.58s/it] 41%|████▏     | 165/400 [32:56<45:16, 11.56s/it] 42%|████▏     | 166/400 [33:07<45:02, 11.55s/it] 42%|████▏     | 167/400 [33:19<44:46, 11.53s/it] 42%|████▏     | 168/400 [33:30<44:32, 11.52s/it] 42%|████▏     | 169/400 [33:42<44:20, 11.52s/it] 42%|████▎     | 170/400 [33:53<44:07, 11.51s/it] 43%|████▎     | 171/400 [34:05<43:54, 11.50s/it] 43%|████▎     | 172/400 [34:16<43:42, 11.50s/it] 43%|████▎     | 173/400 [34:28<43:32, 11.51s/it] 44%|████▎     | 174/400 [34:40<43:20, 11.51s/it] 44%|████▍     | 175/400 [34:51<43:10, 11.51s/it] 44%|████▍     | 176/400 [35:03<42:57, 11.51s/it] 44%|████▍     | 177/400 [35:14<42:45, 11.50s/it] 44%|████▍     | 178/400 [35:26<42:32, 11.50s/it] 45%|████▍     | 179/400 [35:37<42:21, 11.50s/it] 45%|████▌     | 180/400 [35:48<42:09, 11.50s/it] 45%|████▌     | 181/400 [36:00<41:58, 11.50s/it] 46%|████▌     | 182/400 [36:11<41:45, 11.49s/it] 46%|████▌     | 183/400 [36:23<41:32, 11.49s/it] 46%|████▌     | 184/400 [36:34<41:22, 11.49s/it] 46%|████▋     | 185/400 [36:46<41:10, 11.49s/it] 46%|████▋     | 186/400 [36:57<40:59, 11.49s/it] 47%|████▋     | 187/400 [37:09<40:49, 11.50s/it] 47%|████▋     | 188/400 [37:20<40:38, 11.50s/it] 47%|████▋     | 189/400 [37:32<40:27, 11.50s/it] 48%|████▊     | 190/400 [37:43<40:16, 11.51s/it] 48%|████▊     | 191/400 [37:55<40:02, 11.50s/it] 48%|████▊     | 192/400 [38:06<39:50, 11.49s/it] 48%|████▊     | 193/400 [38:18<39:38, 11.49s/it] 48%|████▊     | 194/400 [38:29<39:26, 11.49s/it] 49%|████▉     | 195/400 [38:41<39:14, 11.48s/it] 49%|████▉     | 196/400 [38:52<39:02, 11.48s/it] 49%|████▉     | 197/400 [39:04<38:49, 11.48s/it] 50%|████▉     | 198/400 [39:15<38:37, 11.48s/it] 50%|████▉     | 199/400 [39:27<38:26, 11.47s/it] 50%|█████     | 200/400 [39:38<38:15, 11.48s/it][INFO|trainer.py:749] 2023-08-03 20:04:00,618 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 20:04:00,620 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 20:04:00,620 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 20:04:00,620 >>   Batch size = 8
+{'eval_loss': 0.7921513319015503, 'eval_accuracy': 0.675, 'eval_runtime': 25.5554, 'eval_samples_per_second': 15.652, 'eval_steps_per_second': 1.957, 'epoch': 3.0}
+
+  0%|          | 0/50 [00:00<?, ?it/s][A
+  4%|▍         | 2/50 [00:00<00:12,  3.92it/s][A
+  6%|▌         | 3/50 [00:01<00:16,  2.77it/s][A
+  8%|▊         | 4/50 [00:01<00:19,  2.41it/s][A
+ 10%|█         | 5/50 [00:02<00:20,  2.24it/s][A
+ 12%|█▏        | 6/50 [00:02<00:20,  2.14it/s][A
+ 14%|█▍        | 7/50 [00:03<00:20,  2.09it/s][A
+ 16%|█▌        | 8/50 [00:03<00:20,  2.05it/s][A
+ 18%|█▊        | 9/50 [00:04<00:20,  2.03it/s][A
+ 20%|██        | 10/50 [00:04<00:19,  2.01it/s][A
+ 22%|██▏       | 11/50 [00:05<00:19,  2.00it/s][A
+ 24%|██▍       | 12/50 [00:05<00:19,  1.99it/s][A
+ 26%|██▌       | 13/50 [00:06<00:18,  1.98it/s][A
+ 28%|██▊       | 14/50 [00:06<00:18,  1.98it/s][A
+ 30%|███       | 15/50 [00:07<00:17,  1.98it/s][A
+ 32%|███▏      | 16/50 [00:07<00:17,  1.98it/s][A
+ 34%|███▍      | 17/50 [00:08<00:16,  1.98it/s][A
+ 36%|███▌      | 18/50 [00:08<00:16,  1.98it/s][A
+ 38%|███▊      | 19/50 [00:09<00:15,  1.98it/s][A
+ 40%|████      | 20/50 [00:09<00:15,  1.98it/s][A
+ 42%|████▏     | 21/50 [00:10<00:14,  1.99it/s][A
+ 44%|████▍     | 22/50 [00:10<00:14,  1.98it/s][A
+ 46%|████▌     | 23/50 [00:11<00:13,  1.98it/s][A
+ 48%|████▊     | 24/50 [00:11<00:13,  1.98it/s][A
+ 50%|█████     | 25/50 [00:12<00:12,  1.97it/s][A
+ 52%|█████▏    | 26/50 [00:12<00:12,  1.97it/s][A
+ 54%|█████▍    | 27/50 [00:13<00:11,  1.97it/s][A
+ 56%|█████▌    | 28/50 [00:13<00:11,  1.97it/s][A
+ 58%|█████▊    | 29/50 [00:14<00:10,  1.97it/s][A
+ 60%|██████    | 30/50 [00:14<00:10,  1.97it/s][A
+ 62%|██████▏   | 31/50 [00:15<00:09,  1.97it/s][A
+ 64%|██████▍   | 32/50 [00:15<00:09,  1.97it/s][A
+ 66%|██████▌   | 33/50 [00:16<00:08,  1.97it/s][A
+ 68%|██████▊   | 34/50 [00:16<00:08,  1.97it/s][A
+ 70%|███████   | 35/50 [00:17<00:07,  1.97it/s][A
+ 72%|███████▏  | 36/50 [00:17<00:07,  1.97it/s][A
+ 74%|███████▍  | 37/50 [00:18<00:06,  1.97it/s][A
+ 76%|███████▌  | 38/50 [00:18<00:06,  1.97it/s][A
+ 78%|███████▊  | 39/50 [00:19<00:05,  1.97it/s][A
+ 80%|████████  | 40/50 [00:19<00:05,  1.97it/s][A
+ 82%|████████▏ | 41/50 [00:20<00:04,  1.97it/s][A
+ 84%|████████▍ | 42/50 [00:20<00:04,  1.98it/s][A
+ 86%|████████▌ | 43/50 [00:21<00:03,  1.97it/s][A
+ 88%|████████▊ | 44/50 [00:21<00:03,  1.98it/s][A
+ 90%|█████████ | 45/50 [00:22<00:02,  1.98it/s][A
+ 92%|█████████▏| 46/50 [00:22<00:02,  1.98it/s][A
+ 94%|█████████▍| 47/50 [00:23<00:01,  1.98it/s][A
+ 96%|█████████▌| 48/50 [00:23<00:01,  1.98it/s][A
+ 98%|█████████▊| 49/50 [00:24<00:00,  1.98it/s][A
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A                                                 
+                                               [A 50%|█████     | 200/400 [40:04<38:15, 11.48s/it]
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A
+                                               [A 50%|█████     | 201/400 [40:15<1:03:19, 19.09s/it] 50%|█████     | 202/400 [40:27<55:28, 16.81s/it]   51%|█████     | 203/400 [40:38<49:56, 15.21s/it] 51%|█████     | 204/400 [40:50<46:02, 14.09s/it] 51%|█████▏    | 205/400 [41:01<43:14, 13.30s/it] 52%|█████▏    | 206/400 [41:12<41:13, 12.75s/it] 52%|█████▏    | 207/400 [41:24<39:47, 12.37s/it] 52%|█████▏    | 208/400 [41:35<38:43, 12.10s/it] 52%|█████▏    | 209/400 [41:47<37:55, 11.91s/it] 52%|█████▎    | 210/400 [41:58<37:18, 11.78s/it] 53%|█████▎    | 211/400 [42:10<36:48, 11.68s/it] 53%|█████▎    | 212/400 [42:21<36:24, 11.62s/it] 53%|█████▎    | 213/400 [42:33<36:04, 11.57s/it] 54%|█████▎    | 214/400 [42:44<35:47, 11.54s/it] 54%|█████▍    | 215/400 [42:56<35:31, 11.52s/it] 54%|█████▍    | 216/400 [43:07<35:17, 11.51s/it] 54%|█████▍    | 217/400 [43:19<35:03, 11.49s/it] 55%|█████▍    | 218/400 [43:30<34:49, 11.48s/it] 55%|█████▍    | 219/400 [43:42<34:39, 11.49s/it] 55%|█████▌    | 220/400 [43:53<34:27, 11.48s/it] 55%|█████▌    | 221/400 [44:05<34:12, 11.47s/it] 56%|█████▌    | 222/400 [44:16<34:01, 11.47s/it] 56%|█████▌    | 223/400 [44:27<33:50, 11.47s/it] 56%|█████▌    | 224/400 [44:39<33:38, 11.47s/it] 56%|█████▋    | 225/400 [44:50<33:26, 11.47s/it] 56%|█████▋    | 226/400 [45:02<33:15, 11.47s/it] 57%|█████▋    | 227/400 [45:13<33:03, 11.47s/it] 57%|█████▋    | 228/400 [45:25<32:52, 11.47s/it] 57%|█████▋    | 229/400 [45:36<32:41, 11.47s/it] 57%|█████▊    | 230/400 [45:48<32:29, 11.47s/it] 58%|█████▊    | 231/400 [45:59<32:19, 11.48s/it] 58%|█████▊    | 232/400 [46:11<32:07, 11.47s/it] 58%|█████▊    | 233/400 [46:22<31:54, 11.46s/it] 58%|█████▊    | 234/400 [46:34<31:43, 11.47s/it] 59%|█████▉    | 235/400 [46:45<31:32, 11.47s/it] 59%|█████▉    | 236/400 [46:57<31:21, 11.47s/it] 59%|█████▉    | 237/400 [47:08<31:10, 11.48s/it] 60%|█████▉    | 238/400 [47:20<30:59, 11.48s/it] 60%|█████▉    | 239/400 [47:31<30:48, 11.48s/it] 60%|██████    | 240/400 [47:42<30:35, 11.47s/it] 60%|██████    | 241/400 [47:54<30:24, 11.47s/it] 60%|██████    | 242/400 [48:05<30:12, 11.47s/it] 61%|██████    | 243/400 [48:17<30:01, 11.47s/it] 61%|██████    | 244/400 [48:28<29:48, 11.46s/it] 61%|██████▏   | 245/400 [48:40<29:38, 11.47s/it] 62%|██████▏   | 246/400 [48:51<29:26, 11.47s/it] 62%|██████▏   | 247/400 [49:03<29:14, 11.47s/it] 62%|██████▏   | 248/400 [49:14<29:02, 11.47s/it] 62%|██████▏   | 249/400 [49:26<28:51, 11.46s/it] 62%|██████▎   | 250/400 [49:37<28:39, 11.46s/it][INFO|trainer.py:749] 2023-08-03 20:13:59,494 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 20:13:59,496 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 20:13:59,496 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 20:13:59,496 >>   Batch size = 8
+{'eval_loss': 0.7005441188812256, 'eval_accuracy': 0.735, 'eval_runtime': 25.4025, 'eval_samples_per_second': 15.746, 'eval_steps_per_second': 1.968, 'epoch': 4.0}
+
+  0%|          | 0/50 [00:00<?, ?it/s][A
+  4%|▍         | 2/50 [00:00<00:12,  3.96it/s][A
+  6%|▌         | 3/50 [00:01<00:16,  2.80it/s][A
+  8%|▊         | 4/50 [00:01<00:18,  2.42it/s][A
+ 10%|█         | 5/50 [00:02<00:20,  2.25it/s][A
+ 12%|█▏        | 6/50 [00:02<00:20,  2.14it/s][A
+ 14%|█▍        | 7/50 [00:03<00:20,  2.09it/s][A
+ 16%|█▌        | 8/50 [00:03<00:20,  2.05it/s][A
+ 18%|█▊        | 9/50 [00:04<00:20,  2.03it/s][A
+ 20%|██        | 10/50 [00:04<00:19,  2.01it/s][A
+ 22%|██▏       | 11/50 [00:05<00:19,  2.00it/s][A
+ 24%|██▍       | 12/50 [00:05<00:19,  1.99it/s][A
+ 26%|██▌       | 13/50 [00:06<00:18,  1.98it/s][A
+ 28%|██▊       | 14/50 [00:06<00:18,  1.98it/s][A
+ 30%|███       | 15/50 [00:07<00:17,  1.98it/s][A
+ 32%|███▏      | 16/50 [00:07<00:17,  1.98it/s][A
+ 34%|███▍      | 17/50 [00:08<00:16,  1.98it/s][A
+ 36%|███▌      | 18/50 [00:08<00:16,  1.98it/s][A
+ 38%|███▊      | 19/50 [00:09<00:15,  1.98it/s][A
+ 40%|████      | 20/50 [00:09<00:15,  1.98it/s][A
+ 42%|████▏     | 21/50 [00:10<00:14,  1.99it/s][A
+ 44%|████▍     | 22/50 [00:10<00:14,  1.98it/s][A
+ 46%|████▌     | 23/50 [00:11<00:13,  1.98it/s][A
+ 48%|████▊     | 24/50 [00:11<00:13,  1.98it/s][A
+ 50%|█████     | 25/50 [00:12<00:12,  1.97it/s][A
+ 52%|█████▏    | 26/50 [00:12<00:12,  1.97it/s][A
+ 54%|█████▍    | 27/50 [00:13<00:11,  1.97it/s][A
+ 56%|█████▌    | 28/50 [00:13<00:11,  1.97it/s][A
+ 58%|█████▊    | 29/50 [00:14<00:10,  1.98it/s][A
+ 60%|██████    | 30/50 [00:14<00:10,  1.98it/s][A
+ 62%|██████▏   | 31/50 [00:15<00:09,  1.98it/s][A
+ 64%|██████▍   | 32/50 [00:15<00:09,  1.98it/s][A
+ 66%|██████▌   | 33/50 [00:16<00:08,  1.97it/s][A
+ 68%|██████▊   | 34/50 [00:16<00:08,  1.97it/s][A
+ 70%|███████   | 35/50 [00:17<00:07,  1.97it/s][A
+ 72%|███████▏  | 36/50 [00:17<00:07,  1.97it/s][A
+ 74%|███████▍  | 37/50 [00:18<00:06,  1.98it/s][A
+ 76%|███████▌  | 38/50 [00:18<00:06,  1.98it/s][A
+ 78%|███████▊  | 39/50 [00:19<00:05,  1.98it/s][A
+ 80%|████████  | 40/50 [00:19<00:05,  1.98it/s][A
+ 82%|████████▏ | 41/50 [00:20<00:04,  1.97it/s][A
+ 84%|████████▍ | 42/50 [00:20<00:04,  1.97it/s][A
+ 86%|████████▌ | 43/50 [00:21<00:03,  1.97it/s][A
+ 88%|████████▊ | 44/50 [00:21<00:03,  1.97it/s][A
+ 90%|█████████ | 45/50 [00:22<00:02,  1.98it/s][A
+ 92%|█████████▏| 46/50 [00:22<00:02,  1.97it/s][A
+ 94%|█████████▍| 47/50 [00:23<00:01,  1.98it/s][A
+ 96%|█████████▌| 48/50 [00:23<00:01,  1.98it/s][A
+ 98%|█████████▊| 49/50 [00:24<00:00,  1.98it/s][A
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A                                                 
+                                               [A 62%|██████▎   | 250/400 [50:02<28:39, 11.46s/it]
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A
+                                               [A 63%|██████▎   | 251/400 [50:14<47:20, 19.07s/it] 63%|██████▎   | 252/400 [50:25<41:23, 16.78s/it] 63%|██████▎   | 253/400 [50:37<37:12, 15.19s/it] 64%|██████▎   | 254/400 [50:48<34:15, 14.08s/it] 64%|██████▍   | 255/400 [51:00<32:07, 13.29s/it] 64%|██████▍   | 256/400 [51:11<30:36, 12.75s/it] 64%|██████▍   | 257/400 [51:23<29:29, 12.37s/it] 64%|██████▍   | 258/400 [51:34<28:37, 12.10s/it] 65%|██████▍   | 259/400 [51:46<27:59, 11.91s/it] 65%|██████▌   | 260/400 [51:57<27:28, 11.77s/it] 65%|██████▌   | 261/400 [52:09<27:04, 11.68s/it] 66%|██████▌   | 262/400 [52:20<26:42, 11.61s/it] 66%|██████▌   | 263/400 [52:32<26:25, 11.57s/it] 66%|██████▌   | 264/400 [52:43<26:10, 11.54s/it] 66%|██████▋   | 265/400 [52:55<25:55, 11.52s/it] 66%|██████▋   | 266/400 [53:06<25:41, 11.50s/it] 67%|██████▋   | 267/400 [53:17<25:28, 11.50s/it] 67%|██████▋   | 268/400 [53:29<25:16, 11.49s/it] 67%|██████▋   | 269/400 [53:40<25:04, 11.48s/it] 68%|██████▊   | 270/400 [53:52<24:52, 11.48s/it] 68%|██████▊   | 271/400 [54:03<24:41, 11.48s/it] 68%|██████▊   | 272/400 [54:15<24:29, 11.48s/it] 68%|██████▊   | 273/400 [54:26<24:18, 11.48s/it] 68%|██████▊   | 274/400 [54:38<24:05, 11.47s/it] 69%|██████▉   | 275/400 [54:49<23:54, 11.48s/it] 69%|██████▉   | 276/400 [55:01<23:43, 11.48s/it] 69%|██████▉   | 277/400 [55:12<23:30, 11.47s/it] 70%|██████▉   | 278/400 [55:24<23:19, 11.47s/it] 70%|██████▉   | 279/400 [55:35<23:07, 11.47s/it] 70%|███████   | 280/400 [55:47<22:55, 11.46s/it] 70%|███████   | 281/400 [55:58<22:44, 11.47s/it] 70%|███████   | 282/400 [56:10<22:33, 11.47s/it] 71%|███████   | 283/400 [56:21<22:21, 11.47s/it] 71%|███████   | 284/400 [56:32<22:10, 11.47s/it] 71%|███████▏  | 285/400 [56:44<21:59, 11.47s/it] 72%|███████▏  | 286/400 [56:55<21:47, 11.47s/it] 72%|███████▏  | 287/400 [57:07<21:35, 11.46s/it] 72%|███████▏  | 288/400 [57:18<21:24, 11.47s/it] 72%|███████▏  | 289/400 [57:30<21:17, 11.51s/it] 72%|███████▎  | 290/400 [57:41<21:04, 11.50s/it] 73%|███████▎  | 291/400 [57:53<20:52, 11.49s/it] 73%|███████▎  | 292/400 [58:04<20:40, 11.48s/it] 73%|███████▎  | 293/400 [58:16<20:26, 11.47s/it] 74%|███████▎  | 294/400 [58:27<20:15, 11.47s/it] 74%|███████▍  | 295/400 [58:39<20:03, 11.47s/it] 74%|███████▍  | 296/400 [58:50<19:52, 11.47s/it] 74%|███████▍  | 297/400 [59:02<19:41, 11.48s/it] 74%|███████▍  | 298/400 [59:13<19:30, 11.48s/it] 75%|███████▍  | 299/400 [59:25<19:19, 11.48s/it] 75%|███████▌  | 300/400 [59:36<19:07, 11.48s/it][INFO|trainer.py:749] 2023-08-03 20:23:58,498 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 20:23:58,500 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 20:23:58,500 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 20:23:58,500 >>   Batch size = 8
+{'eval_loss': 0.7585340142250061, 'eval_accuracy': 0.745, 'eval_runtime': 25.3643, 'eval_samples_per_second': 15.77, 'eval_steps_per_second': 1.971, 'epoch': 5.0}
+
+  0%|          | 0/50 [00:00<?, ?it/s][A
+  4%|▍         | 2/50 [00:00<00:12,  3.92it/s][A
+  6%|▌         | 3/50 [00:01<00:16,  2.78it/s][A
+  8%|▊         | 4/50 [00:01<00:19,  2.41it/s][A
+ 10%|█         | 5/50 [00:02<00:20,  2.24it/s][A
+ 12%|█▏        | 6/50 [00:02<00:20,  2.14it/s][A
+ 14%|█▍        | 7/50 [00:03<00:20,  2.08it/s][A
+ 16%|█▌        | 8/50 [00:03<00:20,  2.05it/s][A
+ 18%|█▊        | 9/50 [00:04<00:20,  2.02it/s][A
+ 20%|██        | 10/50 [00:04<00:19,  2.01it/s][A
+ 22%|██▏       | 11/50 [00:05<00:19,  1.99it/s][A
+ 24%|██▍       | 12/50 [00:05<00:19,  1.99it/s][A
+ 26%|██▌       | 13/50 [00:06<00:18,  1.98it/s][A
+ 28%|██▊       | 14/50 [00:06<00:18,  1.97it/s][A
+ 30%|███       | 15/50 [00:07<00:17,  1.98it/s][A
+ 32%|███▏      | 16/50 [00:07<00:17,  1.98it/s][A
+ 34%|███▍      | 17/50 [00:08<00:16,  1.98it/s][A
+ 36%|███▌      | 18/50 [00:08<00:16,  1.98it/s][A
+ 38%|███▊      | 19/50 [00:09<00:15,  1.98it/s][A
+ 40%|████      | 20/50 [00:09<00:15,  1.98it/s][A
+ 42%|████▏     | 21/50 [00:10<00:14,  1.98it/s][A
+ 44%|████▍     | 22/50 [00:10<00:14,  1.98it/s][A
+ 46%|████▌     | 23/50 [00:11<00:13,  1.97it/s][A
+ 48%|████▊     | 24/50 [00:11<00:13,  1.97it/s][A
+ 50%|█████     | 25/50 [00:12<00:12,  1.97it/s][A
+ 52%|█████▏    | 26/50 [00:12<00:12,  1.97it/s][A
+ 54%|█████▍    | 27/50 [00:13<00:11,  1.97it/s][A
+ 56%|█████▌    | 28/50 [00:13<00:11,  1.97it/s][A
+ 58%|█████▊    | 29/50 [00:14<00:10,  1.97it/s][A
+ 60%|██████    | 30/50 [00:14<00:10,  1.97it/s][A
+ 62%|██████▏   | 31/50 [00:15<00:09,  1.97it/s][A
+ 64%|██████▍   | 32/50 [00:15<00:09,  1.97it/s][A
+ 66%|██████▌   | 33/50 [00:16<00:08,  1.97it/s][A
+ 68%|██████▊   | 34/50 [00:16<00:08,  1.97it/s][A
+ 70%|███████   | 35/50 [00:17<00:07,  1.97it/s][A
+ 72%|███████▏  | 36/50 [00:17<00:07,  1.97it/s][A
+ 74%|███████▍  | 37/50 [00:18<00:06,  1.97it/s][A
+ 76%|███████▌  | 38/50 [00:18<00:06,  1.97it/s][A
+ 78%|███████▊  | 39/50 [00:19<00:05,  1.97it/s][A
+ 80%|████████  | 40/50 [00:19<00:05,  1.97it/s][A
+ 82%|████████▏ | 41/50 [00:20<00:04,  1.97it/s][A
+ 84%|████████▍ | 42/50 [00:20<00:04,  1.97it/s][A
+ 86%|████████▌ | 43/50 [00:21<00:03,  1.97it/s][A
+ 88%|████████▊ | 44/50 [00:21<00:03,  1.97it/s][A
+ 90%|█████████ | 45/50 [00:22<00:02,  1.97it/s][A
+ 92%|█████████▏| 46/50 [00:22<00:02,  1.97it/s][A
+ 94%|█████████▍| 47/50 [00:23<00:01,  1.97it/s][A
+ 96%|█████████▌| 48/50 [00:23<00:01,  1.97it/s][A
+ 98%|█████████▊| 49/50 [00:24<00:00,  1.97it/s][A
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A                                                 
+                                               [A 75%|███████▌  | 300/400 [1:00:02<19:07, 11.48s/it]
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A
+                                               [A 75%|███████▌  | 301/400 [1:00:13<31:30, 19.10s/it] 76%|███████▌  | 302/400 [1:00:24<27:28, 16.82s/it] 76%|███████▌  | 303/400 [1:00:36<24:35, 15.21s/it] 76%|███████▌  | 304/400 [1:00:47<22:32, 14.09s/it] 76%|███████▋  | 305/400 [1:00:59<21:05, 13.32s/it] 76%|███████▋  | 306/400 [1:01:10<20:01, 12.78s/it] 77%|███████▋  | 307/400 [1:01:22<19:12, 12.39s/it] 77%|███████▋  | 308/400 [1:01:33<18:35, 12.13s/it] 77%|███████▋  | 309/400 [1:01:45<18:06, 11.94s/it] 78%|███████▊  | 310/400 [1:01:56<17:42, 11.81s/it] 78%|███████▊  | 311/400 [1:02:08<17:22, 11.72s/it] 78%|███████▊  | 312/400 [1:02:19<17:05, 11.65s/it] 78%|███████▊  | 313/400 [1:02:31<16:49, 11.61s/it] 78%|███████▊  | 314/400 [1:02:43<16:36, 11.58s/it] 79%|███████▉  | 315/400 [1:02:54<16:22, 11.56s/it] 79%|███████▉  | 316/400 [1:03:06<16:09, 11.54s/it] 79%|███████▉  | 317/400 [1:03:17<15:57, 11.53s/it] 80%|███████▉  | 318/400 [1:03:29<15:44, 11.52s/it] 80%|███████▉  | 319/400 [1:03:40<15:32, 11.52s/it] 80%|████████  | 320/400 [1:03:52<15:20, 11.51s/it] 80%|████████  | 321/400 [1:04:03<15:08, 11.50s/it] 80%|████████  | 322/400 [1:04:15<14:56, 11.50s/it] 81%|████████  | 323/400 [1:04:26<14:44, 11.49s/it] 81%|████████  | 324/400 [1:04:37<14:33, 11.49s/it] 81%|████████▏ | 325/400 [1:04:49<14:21, 11.48s/it] 82%|████████▏ | 326/400 [1:05:00<14:09, 11.47s/it] 82%|████████▏ | 327/400 [1:05:12<13:57, 11.47s/it] 82%|████████▏ | 328/400 [1:05:23<13:46, 11.48s/it] 82%|████████▏ | 329/400 [1:05:35<13:35, 11.48s/it] 82%|████████▎ | 330/400 [1:05:46<13:24, 11.49s/it] 83%|████████▎ | 331/400 [1:05:58<13:12, 11.49s/it] 83%|████████▎ | 332/400 [1:06:09<13:01, 11.49s/it] 83%|████████▎ | 333/400 [1:06:21<12:49, 11.49s/it] 84%|████████▎ | 334/400 [1:06:32<12:37, 11.48s/it] 84%|████████▍ | 335/400 [1:06:44<12:26, 11.48s/it] 84%|████████▍ | 336/400 [1:06:55<12:14, 11.48s/it] 84%|████████▍ | 337/400 [1:07:07<12:02, 11.48s/it] 84%|████████▍ | 338/400 [1:07:18<11:51, 11.48s/it] 85%|████████▍ | 339/400 [1:07:30<11:39, 11.47s/it] 85%|████████▌ | 340/400 [1:07:41<11:28, 11.47s/it] 85%|████████▌ | 341/400 [1:07:53<11:16, 11.47s/it] 86%|████████▌ | 342/400 [1:08:04<11:05, 11.47s/it] 86%|████████▌ | 343/400 [1:08:16<10:53, 11.47s/it] 86%|████████▌ | 344/400 [1:08:27<10:42, 11.47s/it] 86%|████████▋ | 345/400 [1:08:38<10:30, 11.47s/it] 86%|████████▋ | 346/400 [1:08:50<10:19, 11.47s/it] 87%|████████▋ | 347/400 [1:09:01<10:07, 11.47s/it] 87%|████████▋ | 348/400 [1:09:13<09:56, 11.47s/it] 87%|████████▋ | 349/400 [1:09:24<09:45, 11.47s/it] 88%|████████▊ | 350/400 [1:09:36<09:33, 11.47s/it][INFO|trainer.py:749] 2023-08-03 20:33:58,183 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 20:33:58,185 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 20:33:58,186 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 20:33:58,186 >>   Batch size = 8
+{'eval_loss': 0.8350167274475098, 'eval_accuracy': 0.735, 'eval_runtime': 25.4132, 'eval_samples_per_second': 15.74, 'eval_steps_per_second': 1.967, 'epoch': 6.0}
+
+  0%|          | 0/50 [00:00<?, ?it/s][A
+  4%|▍         | 2/50 [00:00<00:12,  3.96it/s][A
+  6%|▌         | 3/50 [00:01<00:16,  2.80it/s][A
+  8%|▊         | 4/50 [00:01<00:19,  2.42it/s][A
+ 10%|█         | 5/50 [00:02<00:20,  2.25it/s][A
+ 12%|█▏        | 6/50 [00:02<00:20,  2.15it/s][A
+ 14%|█▍        | 7/50 [00:03<00:20,  2.09it/s][A
+ 16%|█▌        | 8/50 [00:03<00:20,  2.05it/s][A
+ 18%|█▊        | 9/50 [00:04<00:20,  2.02it/s][A
+ 20%|██        | 10/50 [00:04<00:19,  2.01it/s][A
+ 22%|██▏       | 11/50 [00:05<00:19,  2.00it/s][A
+ 24%|██▍       | 12/50 [00:05<00:19,  1.99it/s][A
+ 26%|██▌       | 13/50 [00:06<00:18,  1.98it/s][A
+ 28%|██▊       | 14/50 [00:06<00:18,  1.98it/s][A
+ 30%|███       | 15/50 [00:07<00:17,  1.98it/s][A
+ 32%|███▏      | 16/50 [00:07<00:17,  1.98it/s][A
+ 34%|███▍      | 17/50 [00:08<00:16,  1.98it/s][A
+ 36%|███▌      | 18/50 [00:08<00:16,  1.98it/s][A
+ 38%|███▊      | 19/50 [00:09<00:15,  1.98it/s][A
+ 40%|████      | 20/50 [00:09<00:15,  1.98it/s][A
+ 42%|████▏     | 21/50 [00:10<00:14,  1.99it/s][A
+ 44%|████▍     | 22/50 [00:10<00:14,  1.98it/s][A
+ 46%|████▌     | 23/50 [00:11<00:13,  1.98it/s][A
+ 48%|████▊     | 24/50 [00:11<00:13,  1.98it/s][A
+ 50%|█████     | 25/50 [00:12<00:12,  1.97it/s][A
+ 52%|█████▏    | 26/50 [00:12<00:12,  1.97it/s][A
+ 54%|█████▍    | 27/50 [00:13<00:11,  1.97it/s][A
+ 56%|█████▌    | 28/50 [00:13<00:11,  1.97it/s][A
+ 58%|█████▊    | 29/50 [00:14<00:10,  1.97it/s][A
+ 60%|██████    | 30/50 [00:14<00:10,  1.98it/s][A
+ 62%|██████▏   | 31/50 [00:15<00:09,  1.98it/s][A
+ 64%|██████▍   | 32/50 [00:15<00:09,  1.97it/s][A
+ 66%|██████▌   | 33/50 [00:16<00:08,  1.97it/s][A
+ 68%|██████▊   | 34/50 [00:16<00:08,  1.97it/s][A
+ 70%|███████   | 35/50 [00:17<00:07,  1.97it/s][A
+ 72%|███████▏  | 36/50 [00:17<00:07,  1.97it/s][A
+ 74%|███████▍  | 37/50 [00:18<00:06,  1.98it/s][A
+ 76%|███████▌  | 38/50 [00:18<00:06,  1.98it/s][A
+ 78%|███████▊  | 39/50 [00:19<00:05,  1.98it/s][A
+ 80%|████████  | 40/50 [00:19<00:05,  1.98it/s][A
+ 82%|████████▏ | 41/50 [00:20<00:04,  1.97it/s][A
+ 84%|████████▍ | 42/50 [00:20<00:04,  1.98it/s][A
+ 86%|████████▌ | 43/50 [00:21<00:03,  1.97it/s][A
+ 88%|████████▊ | 44/50 [00:21<00:03,  1.97it/s][A
+ 90%|█████████ | 45/50 [00:22<00:02,  1.98it/s][A
+ 92%|█████████▏| 46/50 [00:22<00:02,  1.97it/s][A
+ 94%|█████████▍| 47/50 [00:23<00:01,  1.98it/s][A
+ 96%|█████████▌| 48/50 [00:23<00:01,  1.98it/s][A
+ 98%|█████████▊| 49/50 [00:24<00:00,  1.98it/s][A
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A                                                   
+                                               [A 88%|████████▊ | 350/400 [1:10:01<09:33, 11.47s/it]
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A
+                                               [A 88%|████████▊ | 351/400 [1:10:13<15:34, 19.08s/it] 88%|████████▊ | 352/400 [1:10:24<13:26, 16.80s/it] 88%|████████▊ | 353/400 [1:10:36<11:53, 15.19s/it] 88%|████████▊ | 354/400 [1:10:47<10:47, 14.08s/it] 89%|████████▉ | 355/400 [1:10:58<09:58, 13.29s/it] 89%|████████▉ | 356/400 [1:11:10<09:20, 12.74s/it] 89%|████████▉ | 357/400 [1:11:21<08:51, 12.36s/it] 90%|████████▉ | 358/400 [1:11:33<08:27, 12.09s/it] 90%|████████▉ | 359/400 [1:11:44<08:07, 11.89s/it] 90%|█████████ | 360/400 [1:11:56<07:50, 11.77s/it] 90%|█████████ | 361/400 [1:12:07<07:35, 11.68s/it] 90%|█████████ | 362/400 [1:12:19<07:21, 11.61s/it] 91%|█████████ | 363/400 [1:12:30<07:08, 11.58s/it] 91%|█████████ | 364/400 [1:12:42<06:55, 11.55s/it] 91%|█████████▏| 365/400 [1:12:53<06:43, 11.52s/it] 92%|█████████▏| 366/400 [1:13:05<06:30, 11.50s/it] 92%|█████████▏| 367/400 [1:13:16<06:19, 11.49s/it] 92%|█████████▏| 368/400 [1:13:28<06:07, 11.48s/it] 92%|█████████▏| 369/400 [1:13:39<05:55, 11.47s/it] 92%|█████████▎| 370/400 [1:13:50<05:44, 11.48s/it] 93%|█████████▎| 371/400 [1:14:02<05:32, 11.47s/it] 93%|█████████▎| 372/400 [1:14:13<05:21, 11.47s/it] 93%|█████████▎| 373/400 [1:14:25<05:09, 11.47s/it] 94%|█████████▎| 374/400 [1:14:36<04:58, 11.47s/it] 94%|█████████▍| 375/400 [1:14:48<04:46, 11.47s/it] 94%|█████████▍| 376/400 [1:14:59<04:35, 11.47s/it] 94%|█████████▍| 377/400 [1:15:11<04:23, 11.47s/it] 94%|█████████▍| 378/400 [1:15:22<04:12, 11.46s/it] 95%|█████████▍| 379/400 [1:15:34<04:00, 11.47s/it] 95%|█████████▌| 380/400 [1:15:45<03:49, 11.47s/it] 95%|█████████▌| 381/400 [1:15:57<03:38, 11.48s/it] 96%|█████████▌| 382/400 [1:16:08<03:26, 11.47s/it] 96%|█████████▌| 383/400 [1:16:20<03:14, 11.47s/it] 96%|█████████▌| 384/400 [1:16:31<03:03, 11.47s/it] 96%|█████████▋| 385/400 [1:16:42<02:52, 11.47s/it] 96%|█████████▋| 386/400 [1:16:54<02:40, 11.47s/it] 97%|█████████▋| 387/400 [1:17:05<02:29, 11.48s/it] 97%|█████████▋| 388/400 [1:17:17<02:17, 11.47s/it] 97%|█████████▋| 389/400 [1:17:28<02:06, 11.47s/it] 98%|█████████▊| 390/400 [1:17:40<01:54, 11.47s/it] 98%|█████████▊| 391/400 [1:17:51<01:43, 11.47s/it] 98%|█████████▊| 392/400 [1:18:03<01:31, 11.47s/it] 98%|█████████▊| 393/400 [1:18:14<01:20, 11.47s/it] 98%|█████████▊| 394/400 [1:18:26<01:08, 11.48s/it] 99%|█████████▉| 395/400 [1:18:37<00:57, 11.48s/it] 99%|█████████▉| 396/400 [1:18:49<00:45, 11.48s/it] 99%|█████████▉| 397/400 [1:19:00<00:34, 11.48s/it]100%|█████████▉| 398/400 [1:19:12<00:22, 11.48s/it]100%|█████████▉| 399/400 [1:19:23<00:11, 11.47s/it]100%|██████████| 400/400 [1:19:35<00:00, 11.46s/it][INFO|trainer.py:749] 2023-08-03 20:43:56,928 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 20:43:56,930 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 20:43:56,930 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 20:43:56,930 >>   Batch size = 8
+{'eval_loss': 0.8581910729408264, 'eval_accuracy': 0.725, 'eval_runtime': 25.369, 'eval_samples_per_second': 15.767, 'eval_steps_per_second': 1.971, 'epoch': 7.0}
+
+  0%|          | 0/50 [00:00<?, ?it/s][A
+  4%|▍         | 2/50 [00:00<00:12,  3.94it/s][A
+  6%|▌         | 3/50 [00:01<00:16,  2.79it/s][A
+  8%|▊         | 4/50 [00:01<00:19,  2.41it/s][A
+ 10%|█         | 5/50 [00:02<00:20,  2.25it/s][A
+ 12%|█▏        | 6/50 [00:02<00:20,  2.14it/s][A
+ 14%|█▍        | 7/50 [00:03<00:20,  2.09it/s][A
+ 16%|█▌        | 8/50 [00:03<00:20,  2.06it/s][A
+ 18%|█▊        | 9/50 [00:04<00:20,  2.03it/s][A
+ 20%|██        | 10/50 [00:04<00:19,  2.02it/s][A
+ 22%|██▏       | 11/50 [00:05<00:19,  2.00it/s][A
+ 24%|██▍       | 12/50 [00:05<00:19,  1.99it/s][A
+ 26%|██▌       | 13/50 [00:06<00:18,  1.98it/s][A
+ 28%|██▊       | 14/50 [00:06<00:18,  1.98it/s][A
+ 30%|███       | 15/50 [00:07<00:17,  1.98it/s][A
+ 32%|███▏      | 16/50 [00:07<00:17,  1.98it/s][A
+ 34%|███▍      | 17/50 [00:08<00:16,  1.98it/s][A
+ 36%|███▌      | 18/50 [00:08<00:16,  1.98it/s][A
+ 38%|███▊      | 19/50 [00:09<00:15,  1.98it/s][A
+ 40%|████      | 20/50 [00:09<00:15,  1.99it/s][A
+ 42%|████▏     | 21/50 [00:10<00:14,  1.99it/s][A
+ 44%|████▍     | 22/50 [00:10<00:14,  1.98it/s][A
+ 46%|████▌     | 23/50 [00:11<00:13,  1.98it/s][A
+ 48%|████▊     | 24/50 [00:11<00:13,  1.98it/s][A
+ 50%|█████     | 25/50 [00:12<00:12,  1.97it/s][A
+ 52%|█████▏    | 26/50 [00:12<00:12,  1.97it/s][A
+ 54%|█████▍    | 27/50 [00:13<00:11,  1.97it/s][A
+ 56%|█████▌    | 28/50 [00:13<00:11,  1.97it/s][A
+ 58%|█████▊    | 29/50 [00:14<00:10,  1.98it/s][A
+ 60%|██████    | 30/50 [00:14<00:10,  1.98it/s][A
+ 62%|██████▏   | 31/50 [00:15<00:09,  1.98it/s][A
+ 64%|██████▍   | 32/50 [00:15<00:09,  1.98it/s][A
+ 66%|██████▌   | 33/50 [00:16<00:08,  1.97it/s][A
+ 68%|██████▊   | 34/50 [00:16<00:08,  1.97it/s][A
+ 70%|███████   | 35/50 [00:17<00:07,  1.97it/s][A
+ 72%|███████▏  | 36/50 [00:17<00:07,  1.97it/s][A
+ 74%|███████▍  | 37/50 [00:18<00:06,  1.98it/s][A
+ 76%|███████▌  | 38/50 [00:18<00:06,  1.98it/s][A
+ 78%|███████▊  | 39/50 [00:19<00:05,  1.98it/s][A
+ 80%|████████  | 40/50 [00:19<00:05,  1.98it/s][A
+ 82%|████████▏ | 41/50 [00:20<00:04,  1.97it/s][A
+ 84%|████████▍ | 42/50 [00:20<00:04,  1.97it/s][A
+ 86%|████████▌ | 43/50 [00:21<00:03,  1.97it/s][A
+ 88%|████████▊ | 44/50 [00:21<00:03,  1.98it/s][A
+ 90%|█████████ | 45/50 [00:22<00:02,  1.98it/s][A
+ 92%|█████████▏| 46/50 [00:22<00:02,  1.98it/s][A
+ 94%|█████████▍| 47/50 [00:23<00:01,  1.98it/s][A
+ 96%|█████████▌| 48/50 [00:23<00:01,  1.98it/s][A
+ 98%|█████████▊| 49/50 [00:24<00:00,  1.98it/s][A
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A                                                   
+                                               [A100%|██████████| 400/400 [1:20:00<00:00, 11.46s/it]
+100%|██████████| 50/50 [00:24<00:00,  1.98it/s][A
+                                               [A[INFO|trainer.py:1929] 2023-08-03 20:44:22,305 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                                   100%|██████████| 400/400 [1:20:00<00:00, 11.46s/it]100%|██████████| 400/400 [1:20:00<00:00, 12.00s/it]
+[INFO|trainer.py:2809] 2023-08-03 20:44:22,333 >> Saving model checkpoint to ../../output/task1-deberta-v2-xlarge-mnli-2
+[INFO|configuration_utils.py:460] 2023-08-03 20:44:22,342 >> Configuration saved in ../../output/task1-deberta-v2-xlarge-mnli-2/config.json
+[INFO|modeling_utils.py:1874] 2023-08-03 20:44:56,457 >> Model weights saved in ../../output/task1-deberta-v2-xlarge-mnli-2/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2227] 2023-08-03 20:44:56,462 >> tokenizer config file saved in ../../output/task1-deberta-v2-xlarge-mnli-2/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2234] 2023-08-03 20:44:56,464 >> Special tokens file saved in ../../output/task1-deberta-v2-xlarge-mnli-2/special_tokens_map.json
+{'eval_loss': 0.8910239934921265, 'eval_accuracy': 0.7375, 'eval_runtime': 25.356, 'eval_samples_per_second': 15.775, 'eval_steps_per_second': 1.972, 'epoch': 8.0}
+{'train_runtime': 4805.8271, 'train_samples_per_second': 5.327, 'train_steps_per_second': 0.083, 'train_loss': 0.5839223861694336, 'epoch': 8.0}
+***** train metrics *****
+  epoch                    =        8.0
+  train_loss               =     0.5839
+  train_runtime            = 1:20:05.82
+  train_samples            =       3200
+  train_samples_per_second =      5.327
+  train_steps_per_second   =      0.083
+08/03/2023 20:44:56 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:749] 2023-08-03 20:44:56,765 >> The following columns in the evaluation set don't have a corresponding argument in `DebertaV2ForSequenceClassification.forward` and have been ignored: context, id, sentence. If context, id, sentence are not expected by `DebertaV2ForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3083] 2023-08-03 20:44:56,766 >> ***** Running Evaluation *****
+[INFO|trainer.py:3085] 2023-08-03 20:44:56,766 >>   Num examples = 400
+[INFO|trainer.py:3088] 2023-08-03 20:44:56,766 >>   Batch size = 8
+  0%|          | 0/50 [00:00<?, ?it/s]  4%|▍         | 2/50 [00:00<00:12,  3.99it/s]  6%|▌         | 3/50 [00:01<00:16,  2.82it/s]  8%|▊         | 4/50 [00:01<00:18,  2.45it/s] 10%|█         | 5/50 [00:02<00:19,  2.27it/s] 12%|█▏        | 6/50 [00:02<00:20,  2.17it/s] 14%|█▍        | 7/50 [00:03<00:20,  2.11it/s] 16%|█▌        | 8/50 [00:03<00:20,  2.07it/s] 18%|█▊        | 9/50 [00:04<00:20,  2.05it/s] 20%|██        | 10/50 [00:04<00:19,  2.03it/s] 22%|██▏       | 11/50 [00:05<00:19,  2.02it/s] 24%|██▍       | 12/50 [00:05<00:18,  2.01it/s] 26%|██▌       | 13/50 [00:06<00:18,  2.01it/s] 28%|██▊       | 14/50 [00:06<00:17,  2.00it/s] 30%|███       | 15/50 [00:07<00:17,  2.00it/s] 32%|███▏      | 16/50 [00:07<00:17,  2.00it/s] 34%|███▍      | 17/50 [00:08<00:16,  1.99it/s] 36%|███▌      | 18/50 [00:08<00:16,  1.99it/s] 38%|███▊      | 19/50 [00:09<00:15,  2.00it/s] 40%|████      | 20/50 [00:09<00:14,  2.00it/s] 42%|████▏     | 21/50 [00:10<00:14,  2.00it/s] 44%|████▍     | 22/50 [00:10<00:14,  1.99it/s] 46%|████▌     | 23/50 [00:11<00:13,  1.99it/s] 48%|████▊     | 24/50 [00:11<00:13,  1.99it/s] 50%|█████     | 25/50 [00:12<00:12,  1.99it/s] 52%|█████▏    | 26/50 [00:12<00:12,  1.99it/s] 54%|█████▍    | 27/50 [00:13<00:11,  1.98it/s] 56%|█████▌    | 28/50 [00:13<00:11,  1.98it/s] 58%|█████▊    | 29/50 [00:14<00:10,  1.98it/s] 60%|██████    | 30/50 [00:14<00:10,  1.99it/s] 62%|██████▏   | 31/50 [00:15<00:09,  1.98it/s] 64%|██████▍   | 32/50 [00:15<00:09,  1.98it/s] 66%|██████▌   | 33/50 [00:16<00:08,  1.98it/s] 68%|██████▊   | 34/50 [00:16<00:08,  1.98it/s] 70%|███████   | 35/50 [00:17<00:07,  1.98it/s] 72%|███████▏  | 36/50 [00:17<00:07,  1.99it/s] 74%|███████▍  | 37/50 [00:18<00:06,  1.99it/s] 76%|███████▌  | 38/50 [00:18<00:06,  1.99it/s] 78%|███████▊  | 39/50 [00:19<00:05,  1.99it/s] 80%|████████  | 40/50 [00:19<00:05,  1.98it/s] 82%|████████▏ | 41/50 [00:20<00:04,  1.98it/s] 84%|████████▍ | 42/50 [00:20<00:04,  1.99it/s] 86%|████████▌ | 43/50 [00:21<00:03,  1.98it/s] 88%|████████▊ | 44/50 [00:21<00:03,  1.98it/s] 90%|█████████ | 45/50 [00:22<00:02,  1.99it/s] 92%|█████████▏| 46/50 [00:22<00:02,  1.98it/s] 94%|█████████▍| 47/50 [00:23<00:01,  1.99it/s] 96%|█████████▌| 48/50 [00:23<00:01,  1.99it/s] 98%|█████████▊| 49/50 [00:24<00:00,  1.98it/s]100%|██████████| 50/50 [00:24<00:00,  1.99it/s]100%|██████████| 50/50 [00:24<00:00,  2.03it/s]
+[INFO|modelcard.py:452] 2023-08-03 20:45:22,064 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.7375}]}
+***** eval metrics *****
+  epoch                   =        8.0
+  eval_accuracy           =     0.7375
+  eval_loss               =      0.891
+  eval_runtime            = 0:00:25.15
+  eval_samples            =        400
+  eval_samples_per_second =     15.904
+  eval_steps_per_second   =      1.988
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.015 MB of 0.015 MB uploaded (0.000 MB deduped)wandb: \ 0.015 MB of 0.015 MB uploaded (0.000 MB deduped)wandb: | 0.015 MB of 0.015 MB uploaded (0.000 MB deduped)wandb: / 0.015 MB of 0.015 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:                  eval/accuracy ▁▆▆███▇██
+wandb:                      eval/loss █▃▃▁▂▄▄▅▅
+wandb:                   eval/runtime ▇▆█▅▅▆▅▅▁
+wandb:        eval/samples_per_second ▂▂▁▄▄▃▄▄█
+wandb:          eval/steps_per_second ▂▂▁▃▄▃▄▄█
+wandb:                    train/epoch ▁▂▃▄▅▆▇███
+wandb:              train/global_step ▁▂▃▄▅▆▇███
+wandb:               train/total_flos ▁
+wandb:               train/train_loss ▁
+wandb:            train/train_runtime ▁
+wandb: train/train_samples_per_second ▁
+wandb:   train/train_steps_per_second ▁
+wandb: 
+wandb: Run summary:
+wandb:                  eval/accuracy 0.7375
+wandb:                      eval/loss 0.89102
+wandb:                   eval/runtime 25.1509
+wandb:        eval/samples_per_second 15.904
+wandb:          eval/steps_per_second 1.988
+wandb:                    train/epoch 8.0
+wandb:              train/global_step 400
+wandb:               train/total_flos 5.42174527881216e+16
+wandb:               train/train_loss 0.58392
+wandb:            train/train_runtime 4805.8271
+wandb: train/train_samples_per_second 5.327
+wandb:   train/train_steps_per_second 0.083
+wandb: 
+wandb: 🚀 View run task1-deberta-v2-xlarge-mnli at: https://wandb.ai/ym_k/huggingface/runs/i3f0kg84
+wandb: ️⚡ View job at https://wandb.ai/ym_k/huggingface/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjg3NzUxMjEw/version_details/v2
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230803_192417-i3f0kg84/logs

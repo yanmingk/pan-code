@@ -1,0 +1,229 @@
+/var/spool/slurmd/job00013/slurm_script: line 25: nvidia-smi: command not found
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Mon_Oct_24_19:12:58_PDT_2022
+Cuda compilation tools, release 12.0, V12.0.76
+Build cuda_12.0.r12.0/compiler.31968024_0
+08/01/2023 22:03:02 - WARNING - __main__ - Process rank: 0, device: cpu, n_gpu: 0distributed training: False, 16-bits training: False
+08/01/2023 22:03:02 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=0,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=../../output/bert_large/runs/Aug01_22-03-02_gpu-pr1-01,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=8.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=../../output/bert_large,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=../../output/bert_large,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|configuration_utils.py:715] 2023-08-01 22:03:02,926 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-01 22:03:02,939 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|configuration_utils.py:715] 2023-08-01 22:03:03,007 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-01 22:03:03,008 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 22:03:03,017 >> loading file vocab.txt from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/vocab.txt
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 22:03:03,017 >> loading file tokenizer.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/tokenizer.json
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 22:03:03,017 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 22:03:03,017 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-01 22:03:03,017 >> loading file tokenizer_config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/tokenizer_config.json
+[INFO|configuration_utils.py:715] 2023-08-01 22:03:03,019 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-01 22:03:03,020 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|modeling_utils.py:2638] 2023-08-01 22:03:03,309 >> loading weights file model.safetensors from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/model.safetensors
+[INFO|modeling_utils.py:3360] 2023-08-01 22:03:18,184 >> Some weights of the model checkpoint at bert-large-uncased were not used when initializing BertForQuestionAnswering: ['cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'bert.pooler.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'bert.pooler.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertForQuestionAnswering from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForQuestionAnswering from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:3372] 2023-08-01 22:03:18,185 >> Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-large-uncased and are newly initialized: ['qa_outputs.weight', 'qa_outputs.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Running tokenizer on train dataset:   0%|          | 0/3200 [00:00<?, ? examples/s]Running tokenizer on train dataset:  31%|███▏      | 1000/3200 [00:02<00:05, 403.13 examples/s]Running tokenizer on train dataset:  62%|██████▎   | 2000/3200 [00:04<00:02, 422.59 examples/s]Running tokenizer on train dataset:  94%|█████████▍| 3000/3200 [00:07<00:00, 423.20 examples/s]Running tokenizer on train dataset: 100%|██████████| 3200/3200 [00:07<00:00, 430.18 examples/s]                                                                                               Running tokenizer on validation dataset:   0%|          | 0/400 [00:00<?, ? examples/s]Running tokenizer on validation dataset: 100%|██████████| 400/400 [00:01<00:00, 370.78 examples/s]                                                                                                  [INFO|trainer.py:1681] 2023-08-01 22:03:27,605 >> ***** Running training *****
+[INFO|trainer.py:1682] 2023-08-01 22:03:27,605 >>   Num examples = 6,624
+[INFO|trainer.py:1683] 2023-08-01 22:03:27,605 >>   Num Epochs = 8
+[INFO|trainer.py:1684] 2023-08-01 22:03:27,605 >>   Instantaneous batch size per device = 12
+[INFO|trainer.py:1687] 2023-08-01 22:03:27,605 >>   Total train batch size (w. parallel, distributed & accumulation) = 12
+[INFO|trainer.py:1688] 2023-08-01 22:03:27,605 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1689] 2023-08-01 22:03:27,605 >>   Total optimization steps = 4,416
+[INFO|trainer.py:1690] 2023-08-01 22:03:27,606 >>   Number of trainable parameters = 334,094,338
+[INFO|integrations.py:716] 2023-08-01 22:03:27,614 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: ym_k. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.7
+wandb: Run data is saved locally in /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task-2/wandb/run-20230801_220330-c3301drk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run playful-thunder-5
+wandb: ⭐️ View project at https://wandb.ai/ym_k/huggingface
+wandb: 🚀 View run at https://wandb.ai/ym_k/huggingface/runs/c3301drk
+  0%|          | 0/4416 [00:00<?, ?it/s]  0%|          | 1/4416 [02:58<218:28:50, 178.15s/it]  0%|          | 2/4416 [05:54<216:54:21, 176.91s/it]  0%|          | 3/4416 [08:52<217:25:38, 177.37s/it]  0%|          | 4/4416 [11:44<215:03:36, 175.48s/it]  0%|          | 5/4416 [14:32<211:48:40, 172.87s/it]  0%|          | 6/4416 [17:20<209:37:03, 171.12s/it]  0%|          | 7/4416 [20:06<207:22:28, 169.32s/it]  0%|          | 8/4416 [22:50<205:29:02, 167.82s/it]  0%|          | 9/4416 [25:36<204:30:57, 167.07s/it]  0%|          | 10/4416 [28:21<203:44:47, 166.47s/it]  0%|          | 11/4416 [31:05<202:54:47, 165.83s/it]  0%|          | 12/4416 [33:51<202:38:23, 165.65s/it]  0%|          | 13/4416 [36:34<201:55:58, 165.11s/it]  0%|          | 14/4416 [39:18<201:12:14, 164.55s/it]  0%|          | 15/4416 [42:01<200:46:50, 164.24s/it]  0%|          | 16/4416 [44:46<200:53:32, 164.37s/it]  0%|          | 17/4416 [47:30<200:42:17, 164.25s/it]  0%|          | 18/4416 [50:13<200:16:31, 163.94s/it]  0%|          | 19/4416 [52:55<199:23:27, 163.25s/it]  0%|          | 20/4416 [55:37<199:04:08, 163.02s/it]  0%|          | 21/4416 [58:21<199:23:56, 163.33s/it]  0%|          | 22/4416 [1:01:21<205:33:12, 168.41s/it]  1%|          | 23/4416 [1:04:14<207:06:04, 169.72s/it]  1%|          | 24/4416 [1:07:03<206:50:44, 169.55s/it]  1%|          | 25/4416 [1:09:47<204:48:52, 167.92s/it]  1%|          | 26/4416 [1:12:33<204:00:23, 167.29s/it]  1%|          | 27/4416 [1:15:17<202:27:35, 166.06s/it]  1%|          | 28/4416 [1:17:59<201:16:29, 165.13s/it]  1%|          | 29/4416 [1:20:42<200:07:18, 164.22s/it]  1%|          | 30/4416 [1:23:24<199:29:06, 163.74s/it]  1%|          | 31/4416 [1:26:07<199:16:25, 163.60s/it]  1%|          | 32/4416 [1:28:50<198:48:21, 163.25s/it]  1%|          | 33/4416 [1:31:32<198:15:47, 162.84s/it]  1%|          | 34/4416 [1:34:15<198:14:07, 162.86s/it]  1%|          | 35/4416 [1:36:57<198:06:14, 162.79s/it]  1%|          | 36/4416 [1:39:39<197:45:25, 162.54s/it]  1%|          | 37/4416 [1:42:21<197:14:37, 162.16s/it]  1%|          | 38/4416 [1:45:03<197:22:24, 162.30s/it]  1%|          | 39/4416 [1:47:45<197:11:20, 162.18s/it]  1%|          | 40/4416 [1:50:28<197:26:16, 162.43s/it]  1%|          | 41/4416 [1:53:14<198:37:32, 163.44s/it]  1%|          | 42/4416 [1:56:00<199:22:35, 164.10s/it]  1%|          | 43/4416 [1:58:44<199:24:06, 164.15s/it]  1%|          | 44/4416 [2:01:28<199:33:04, 164.31s/it]  1%|          | 45/4416 [2:04:12<199:05:13, 163.97s/it]  1%|          | 46/4416 [2:06:55<198:57:01, 163.90s/it]  1%|          | 47/4416 [2:09:39<198:53:42, 163.89s/it]  1%|          | 48/4416 [2:12:22<198:18:44, 163.44s/it]  1%|          | 49/4416 [2:15:06<198:27:56, 163.61s/it]  1%|          | 50/4416 [2:17:49<198:22:58, 163.58s/it]  1%|          | 51/4416 [2:20:33<198:19:09, 163.56s/it]  1%|          | 52/4416 [2:23:16<198:04:39, 163.40s/it]  1%|          | 53/4416 [2:25:58<197:41:20, 163.12s/it]  1%|          | 54/4416 [2:28:41<197:43:25, 163.18s/it]  1%|          | 55/4416 [2:31:25<197:48:58, 163.30s/it]  1%|▏         | 56/4416 [2:34:08<197:48:36, 163.33s/it]  1%|▏         | 57/4416 [2:36:52<197:40:18, 163.25s/it]  1%|▏         | 58/4416 [2:39:34<197:17:07, 162.97s/it]  1%|▏         | 59/4416 [2:42:17<197:24:10, 163.11s/it]  1%|▏         | 60/4416 [2:45:00<197:07:40, 162.92s/it]  1%|▏         | 61/4416 [2:47:43<197:16:53, 163.08s/it]  1%|▏         | 62/4416 [2:50:27<197:22:17, 163.19s/it]  1%|▏         | 63/4416 [2:53:10<197:13:10, 163.10s/it]  1%|▏         | 64/4416 [2:55:52<196:52:25, 162.86s/it]  1%|▏         | 65/4416 [2:58:34<196:30:02, 162.58s/it]  1%|▏         | 66/4416 [3:01:17<196:31:05, 162.64s/it]  2%|▏         | 67/4416 [3:04:00<196:42:23, 162.83s/it]  2%|▏         | 68/4416 [3:06:43<196:47:18, 162.93s/it]  2%|▏         | 69/4416 [3:09:25<196:23:30, 162.64s/it]  2%|▏         | 70/4416 [3:12:07<195:59:01, 162.34s/it]  2%|▏         | 71/4416 [3:14:48<195:27:04, 161.94s/it]  2%|▏         | 72/4416 [3:17:29<195:09:10, 161.73s/it]  2%|▏         | 73/4416 [3:20:10<195:04:31, 161.70s/it]  2%|▏         | 74/4416 [3:22:52<195:02:57, 161.72s/it]  2%|▏         | 75/4416 [3:25:52<201:29:24, 167.10s/it]  2%|▏         | 76/4416 [3:28:45<203:27:05, 168.76s/it]  2%|▏         | 77/4416 [3:31:33<203:24:37, 168.77s/it]  2%|▏         | 78/4416 [3:34:17<201:40:59, 167.37s/it]  2%|▏         | 79/4416 [3:37:04<201:12:33, 167.02s/it]  2%|▏         | 80/4416 [3:39:48<200:22:02, 166.36s/it]  2%|▏         | 81/4416 [3:42:32<199:23:29, 165.58s/it]  2%|▏         | 82/4416 [3:45:17<199:03:50, 165.35s/it]  2%|▏         | 83/4416 [3:48:01<198:24:47, 164.85s/it]  2%|▏         | 84/4416 [3:50:46<198:25:54, 164.90s/it]  2%|▏         | 85/4416 [3:53:32<198:45:31, 165.21s/it]  2%|▏         | 86/4416 [3:56:17<198:36:14, 165.12s/it]  2%|▏         | 87/4416 [3:59:02<198:30:36, 165.08s/it]slurmstepd: error: *** JOB 13 ON gpu-pr1-01 CANCELLED AT 2023-08-02T02:03:04 DUE TO TIME LIMIT ***

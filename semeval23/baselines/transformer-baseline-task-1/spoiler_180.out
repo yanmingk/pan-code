@@ -1,0 +1,200 @@
+Thu Aug  3 16:18:44 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100 80G...  On   | 00000000:C1:00.0 Off |                    0 |
+| N/A   34C    P0    43W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+08/03/2023 16:18:50 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+08/03/2023 16:18:50 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=../../outputs/task1-deberta-v2-xlarge-mnli/runs/Aug03_16-18-50_gpu-pr1-02,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=4.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=../../outputs/task1-deberta-v2-xlarge-mnli,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=../../outputs/task1-deberta-v2-xlarge-mnli,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+08/03/2023 16:18:50 - INFO - __main__ - load a local file for train: ../../data/train.json
+08/03/2023 16:18:50 - INFO - __main__ - load a local file for validation: ../../data/val.json
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -1/run_classification.py:744 in <module>                                     │
+│                                                                              │
+│   741                                                                        │
+│   742                                                                        │
+│   743 if __name__ == "__main__":                                             │
+│ ❱ 744 │   main()                                                             │
+│   745                                                                        │
+│                                                                              │
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -1/run_classification.py:378 in main                                         │
+│                                                                              │
+│   375 │   │   │   )                                                          │
+│   376 │   │   else:                                                          │
+│   377 │   │   │   # Loading a dataset from local json files                  │
+│ ❱ 378 │   │   │   raw_datasets = load_dataset(                               │
+│   379 │   │   │   │   "json",                                                │
+│   380 │   │   │   │   data_files=data_files,                                 │
+│   381 │   │   │   │   cache_dir=model_args.cache_dir,                        │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/datasets/load │
+│ .py:1773 in load_dataset                                                     │
+│                                                                              │
+│   1770 │   )                                                                 │
+│   1771 │                                                                     │
+│   1772 │   # Create a dataset builder                                        │
+│ ❱ 1773 │   builder_instance = load_dataset_builder(                          │
+│   1774 │   │   path=path,                                                    │
+│   1775 │   │   name=name,                                                    │
+│   1776 │   │   data_dir=data_dir,                                            │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/datasets/load │
+│ .py:1528 in load_dataset_builder                                             │
+│                                                                              │
+│   1525 │   │   raise ValueError(error_msg)                                   │
+│   1526 │                                                                     │
+│   1527 │   # Instantiate the dataset builder                                 │
+│ ❱ 1528 │   builder_instance: DatasetBuilder = builder_cls(                   │
+│   1529 │   │   cache_dir=cache_dir,                                          │
+│   1530 │   │   config_name=config_name,                                      │
+│   1531 │   │   data_dir=data_dir,                                            │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/datasets/buil │
+│ der.py:355 in __init__                                                       │
+│                                                                              │
+│    352 │   │   │   config_kwargs["data_files"] = data_files                  │
+│    353 │   │   if data_dir is not None:                                      │
+│    354 │   │   │   config_kwargs["data_dir"] = data_dir                      │
+│ ❱  355 │   │   self.config, self.config_id = self._create_builder_config(    │
+│    356 │   │   │   config_name=config_name,                                  │
+│    357 │   │   │   custom_features=features,                                 │
+│    358 │   │   │   **config_kwargs,                                          │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/datasets/buil │
+│ der.py:512 in _create_builder_config                                         │
+│                                                                              │
+│    509 │   │   │   │   config_kwargs["name"] = self.DEFAULT_CONFIG_NAME      │
+│    510 │   │   │   if "version" not in config_kwargs and hasattr(self, "VERS │
+│    511 │   │   │   │   config_kwargs["version"] = self.VERSION               │
+│ ❱  512 │   │   │   builder_config = self.BUILDER_CONFIG_CLASS(**config_kwarg │
+│    513 │   │                                                                 │
+│    514 │   │   # otherwise use the config_kwargs to overwrite the attributes │
+│    515 │   │   else:                                                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+TypeError: JsonConfig.__init__() got an unexpected keyword argument 'token'

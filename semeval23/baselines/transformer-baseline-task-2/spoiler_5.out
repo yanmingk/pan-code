@@ -1,0 +1,105 @@
+/var/spool/slurmd/job00005/slurm_script: line 15: nvidia-smi: command not found
+Found existing installation: transformers 4.30.2
+Uninstalling transformers-4.30.2:
+  Would remove:
+    /mnt/hpc/work/y53kang/.conda/envs/spoiler/bin/transformers-cli
+    /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers-4.30.2.dist-info/*
+    /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/*
+Proceed (Y/n)? ERROR: Exception:
+Traceback (most recent call last):
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/pip/_internal/cli/base_command.py", line 169, in exc_logging_wrapper
+    status = run_func(*args)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/pip/_internal/commands/uninstall.py", line 105, in run
+    uninstall_pathset = req.uninstall(
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/pip/_internal/req/req_install.py", line 680, in uninstall
+    uninstalled_pathset.remove(auto_confirm, verbose)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/pip/_internal/req/req_uninstall.py", line 375, in remove
+    if auto_confirm or self._allowed_to_proceed(verbose):
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/pip/_internal/req/req_uninstall.py", line 415, in _allowed_to_proceed
+    return ask("Proceed (Y/n)? ", ("y", "n", "")) != "n"
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/pip/_internal/utils/misc.py", line 192, in ask
+    response = input(message)
+EOFError: EOF when reading a line
+Collecting git+https://github.com/huggingface/transformers
+  Cloning https://github.com/huggingface/transformers to /tmp/pip-req-build-o8l1a5hw
+  Running command git clone --filter=blob:none --quiet https://github.com/huggingface/transformers /tmp/pip-req-build-o8l1a5hw
+  Resolved https://github.com/huggingface/transformers to commit d27e4c18fe2970abcb9a48dcb8a824e48083b15f
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: filelock in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (3.12.2)
+Requirement already satisfied: huggingface-hub<1.0,>=0.14.1 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (0.15.1)
+Requirement already satisfied: numpy>=1.17 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (1.24.3)
+Requirement already satisfied: packaging>=20.0 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (23.1)
+Requirement already satisfied: pyyaml>=5.1 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (6.0)
+Requirement already satisfied: regex!=2019.12.17 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (2023.6.3)
+Requirement already satisfied: requests in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (2.31.0)
+Requirement already satisfied: tokenizers!=0.11.3,<0.14,>=0.11.1 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (0.13.3)
+Requirement already satisfied: safetensors>=0.3.1 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (0.3.1)
+Requirement already satisfied: tqdm>=4.27 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from transformers==4.32.0.dev0) (4.65.0)
+Requirement already satisfied: fsspec in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.14.1->transformers==4.32.0.dev0) (2023.6.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.14.1->transformers==4.32.0.dev0) (4.6.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests->transformers==4.32.0.dev0) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests->transformers==4.32.0.dev0) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests->transformers==4.32.0.dev0) (1.26.16)
+Requirement already satisfied: certifi>=2017.4.17 in /mnt/hpc/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages (from requests->transformers==4.32.0.dev0) (2023.5.7)
+Building wheels for collected packages: transformers
+  Building wheel for transformers (pyproject.toml): started
+  Building wheel for transformers (pyproject.toml): finished with status 'done'
+  Created wheel for transformers: filename=transformers-4.32.0.dev0-py3-none-any.whl size=7448199 sha256=bbcdbd4819cc003528c5aad54135e2ffda96403adead3b03f72c8cfc462bce9a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-54nn10at/wheels/c0/14/d6/6c9a5582d2ac191ec0a483be151a4495fe1eb2a6706ca49f1b
+Successfully built transformers
+Installing collected packages: transformers
+  Attempting uninstall: transformers
+    Found existing installation: transformers 4.30.2
+    Uninstalling transformers-4.30.2:
+      Successfully uninstalled transformers-4.30.2
+Successfully installed transformers-4.32.0.dev0
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -2/run_qa_hf.py:694 in <module>                                              │
+│                                                                              │
+│   691                                                                        │
+│   692                                                                        │
+│   693 if __name__ == "__main__":                                             │
+│ ❱ 694 │   main()                                                             │
+│   695                                                                        │
+│                                                                              │
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -2/run_qa_hf.py:228 in main                                                  │
+│                                                                              │
+│   225 │   │   # let's parse it to get our arguments.                         │
+│   226 │   │   model_args, data_args, training_args = parser.parse_json_file( │
+│   227 │   else:                                                              │
+│ ❱ 228 │   │   model_args, data_args, training_args = parser.parse_args_into_ │
+│   229 │                                                                      │
+│   230 │   # Sending telemetry. Tracking the example usage helps us better al │
+│   231 │   # information sent is the one passed as arguments along with your  │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ hf_argparser.py:338 in parse_args_into_dataclasses                           │
+│                                                                              │
+│   335 │   │   │   inputs = {k: v for k, v in vars(namespace).items() if k in │
+│   336 │   │   │   for k in keys:                                             │
+│   337 │   │   │   │   delattr(namespace, k)                                  │
+│ ❱ 338 │   │   │   obj = dtype(**inputs)                                      │
+│   339 │   │   │   outputs.append(obj)                                        │
+│   340 │   │   if len(namespace.__dict__) > 0:                                │
+│   341 │   │   │   # additional namespace.                                    │
+│ in __init__:20                                                               │
+│                                                                              │
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -2/run_qa_hf.py:204 in __post_init__                                         │
+│                                                                              │
+│   201 │   │   │   and self.validation_file is None                           │
+│   202 │   │   │   and self.test_file is None                                 │
+│   203 │   │   ):                                                             │
+│ ❱ 204 │   │   │   raise ValueError("Need either a dataset name or a training │
+│   205 │   │   else:                                                          │
+│   206 │   │   │   if self.train_file is not None:                            │
+│   207 │   │   │   │   extension = self.train_file.split(".")[-1]             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ValueError: Need either a dataset name or a training/validation file/test_file.

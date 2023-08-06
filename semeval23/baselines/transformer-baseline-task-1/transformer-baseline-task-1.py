@@ -22,7 +22,7 @@ def load_input(df):
     
     ret = []
     for _, i in df.iterrows():
-        ret += [{'text': ' '.join(i['postText']) + ' - ' + i['targetTitle'] + ' ' + ' '.join(i['targetParagraphs']), 'uuid': i['uuid']}]
+        ret += [{'text': ' '.join(i['postText']) + ' - ' + i['targetTitle'] + ' ' + ' '.join(i['targetParagraphs']), 'id': i['id']}]
     
     return pd.DataFrame(ret)
 
@@ -36,12 +36,12 @@ def predict(df):
     labels = ['phrase', 'passage', 'multi']
     model = ClassificationModel('deberta', '/model', use_cuda=use_cuda())
 
-    uuids = list(df['uuid'])
+    uuids = list(df['id'])
     texts = list(df['text'])
     predictions = model.predict(texts)[1]
-    
+
     for i in range(len(df)):
-        yield {'uuid': uuids[i], 'spoilerType': labels[np.argmax(predictions[i])]}
+        yield {'id': uuids[i], 'spoilerType': labels[np.argmax(predictions[i])]}
 
 
 def run_baseline(input_file, output_file):

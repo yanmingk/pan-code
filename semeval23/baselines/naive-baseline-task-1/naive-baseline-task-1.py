@@ -15,8 +15,8 @@ def run_baseline(input_file, output_file):
     with open(input_file, 'r') as inp, open(output_file, 'w') as out:
         for i in inp:
             i = json.loads(i)
-
-            prediction = {'uuid': i['uuid'], 'spoilerType': 'passage'}
+            # prediction = {'uuid': i['uuid'], 'spoilerType': 'passage'}
+            prediction = {'id': i['id'], 'spoilerType': 'passage'}
             out.write(json.dumps(prediction) + '\n')
 
 

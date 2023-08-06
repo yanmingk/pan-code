@@ -13,7 +13,7 @@ def parse_args():
 
 def predict(inputs):
     for i in inputs:
-        yield {'uuid': i['uuid'], 'spoiler': i['targetTitle']}
+        yield {'id': i['id'], 'spoiler': i['targetTitle']}
 
 
 def run_baseline(input_file, output_file):

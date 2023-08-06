@@ -1,0 +1,492 @@
+Wed Aug  2 21:10:05 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla P100-PCIE...  On   | 00000000:04:00.0 Off |                    0 |
+| N/A   29C    P0    24W / 250W |      0MiB / 16384MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Mon_Oct_24_19:12:58_PDT_2022
+Cuda compilation tools, release 12.0, V12.0.76
+Build cuda_12.0.r12.0/compiler.31968024_0
+08/02/2023 21:10:17 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+08/02/2023 21:10:17 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=../../output/bert_large/runs/Aug02_21-10-17_gpu-pr1-01,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=8.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=../../output/bert_large,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=../../output/bert_large,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|configuration_utils.py:715] 2023-08-02 21:10:18,478 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-02 21:10:18,489 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|configuration_utils.py:715] 2023-08-02 21:10:18,550 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-02 21:10:18,551 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|tokenization_utils_base.py:1844] 2023-08-02 21:10:18,558 >> loading file vocab.txt from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/vocab.txt
+[INFO|tokenization_utils_base.py:1844] 2023-08-02 21:10:18,558 >> loading file tokenizer.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/tokenizer.json
+[INFO|tokenization_utils_base.py:1844] 2023-08-02 21:10:18,558 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-02 21:10:18,558 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-02 21:10:18,558 >> loading file tokenizer_config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/tokenizer_config.json
+[INFO|configuration_utils.py:715] 2023-08-02 21:10:18,560 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/config.json
+[INFO|configuration_utils.py:771] 2023-08-02 21:10:18,562 >> Model config BertConfig {
+  "_name_or_path": "bert-large-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|modeling_utils.py:2638] 2023-08-02 21:10:18,801 >> loading weights file model.safetensors from cache at /work/y53kang/.cache/huggingface/hub/models--bert-large-uncased/snapshots/80792f8e8216b29f3c846b653a0ff0a37c210431/model.safetensors
+[INFO|modeling_utils.py:3360] 2023-08-02 21:10:22,005 >> Some weights of the model checkpoint at bert-large-uncased were not used when initializing BertForQuestionAnswering: ['bert.pooler.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'bert.pooler.dense.bias']
+- This IS expected if you are initializing BertForQuestionAnswering from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForQuestionAnswering from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:3372] 2023-08-02 21:10:22,005 >> Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-large-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Running tokenizer on train dataset:   0%|          | 0/3200 [00:00<?, ? examples/s]Running tokenizer on train dataset:  31%|███▏      | 1000/3200 [00:02<00:05, 423.41 examples/s]Running tokenizer on train dataset:  62%|██████▎   | 2000/3200 [00:04<00:02, 430.05 examples/s]Running tokenizer on train dataset:  94%|█████████▍| 3000/3200 [00:06<00:00, 431.67 examples/s]Running tokenizer on train dataset: 100%|██████████| 3200/3200 [00:07<00:00, 437.83 examples/s]                                                                                               Running tokenizer on validation dataset:   0%|          | 0/400 [00:00<?, ? examples/s]Running tokenizer on validation dataset: 100%|██████████| 400/400 [00:01<00:00, 371.34 examples/s]                                                                                                  [INFO|trainer.py:1681] 2023-08-02 21:10:37,250 >> ***** Running training *****
+[INFO|trainer.py:1682] 2023-08-02 21:10:37,250 >>   Num examples = 6,624
+[INFO|trainer.py:1683] 2023-08-02 21:10:37,250 >>   Num Epochs = 8
+[INFO|trainer.py:1684] 2023-08-02 21:10:37,250 >>   Instantaneous batch size per device = 12
+[INFO|trainer.py:1687] 2023-08-02 21:10:37,250 >>   Total train batch size (w. parallel, distributed & accumulation) = 12
+[INFO|trainer.py:1688] 2023-08-02 21:10:37,250 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1689] 2023-08-02 21:10:37,250 >>   Total optimization steps = 4,416
+[INFO|trainer.py:1690] 2023-08-02 21:10:37,251 >>   Number of trainable parameters = 334,094,338
+[INFO|integrations.py:716] 2023-08-02 21:10:37,257 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: ym_k. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.7
+wandb: Run data is saved locally in /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task-2/wandb/run-20230802_211039-6q0zx2fq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run stellar-vortex-11
+wandb: ⭐️ View project at https://wandb.ai/ym_k/huggingface
+wandb: 🚀 View run at https://wandb.ai/ym_k/huggingface/runs/6q0zx2fq
+  0%|          | 0/4416 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task-2/run_qa_hf.py", line 694, in <module>
+    main()
+  File "/mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task-2/run_qa_hf.py", line 635, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/trainer.py", line 1531, in train
+    return inner_training_loop(
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/trainer.py", line 1804, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/trainer.py", line 2646, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/trainer.py", line 2671, in compute_loss
+    outputs = model(**inputs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 1844, in forward
+    outputs = self.bert(
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 1022, in forward
+    encoder_outputs = self.encoder(
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 612, in forward
+    layer_outputs = layer_module(
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 497, in forward
+    self_attention_outputs = self.attention(
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 427, in forward
+    self_outputs = self.self(
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 325, in forward
+    attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 192.00 MiB (GPU 0; 15.89 GiB total capacity; 15.17 GiB already allocated; 39.88 MiB free; 15.18 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -2/run_qa_hf.py:694 in <module>                                              │
+│                                                                              │
+│   691                                                                        │
+│   692                                                                        │
+│   693 if __name__ == "__main__":                                             │
+│ ❱ 694 │   main()                                                             │
+│   695                                                                        │
+│                                                                              │
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -2/run_qa_hf.py:635 in main                                                  │
+│                                                                              │
+│   632 │   │   │   checkpoint = training_args.resume_from_checkpoint          │
+│   633 │   │   elif last_checkpoint is not None:                              │
+│   634 │   │   │   checkpoint = last_checkpoint                               │
+│ ❱ 635 │   │   train_result = trainer.train(resume_from_checkpoint=checkpoint │
+│   636 │   │   trainer.save_model()  # Saves the tokenizer too for easy uploa │
+│   637 │   │                                                                  │
+│   638 │   │   metrics = train_result.metrics                                 │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ trainer.py:1531 in train                                                     │
+│                                                                              │
+│   1528 │   │   inner_training_loop = find_executable_batch_size(             │
+│   1529 │   │   │   self._inner_training_loop, self._train_batch_size, args.a │
+│   1530 │   │   )                                                             │
+│ ❱ 1531 │   │   return inner_training_loop(                                   │
+│   1532 │   │   │   args=args,                                                │
+│   1533 │   │   │   resume_from_checkpoint=resume_from_checkpoint,            │
+│   1534 │   │   │   trial=trial,                                              │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ trainer.py:1804 in _inner_training_loop                                      │
+│                                                                              │
+│   1801 │   │   │   │   │   self.control = self.callback_handler.on_step_begi │
+│   1802 │   │   │   │                                                         │
+│   1803 │   │   │   │   with self.accelerator.accumulate(model):              │
+│ ❱ 1804 │   │   │   │   │   tr_loss_step = self.training_step(model, inputs)  │
+│   1805 │   │   │   │                                                         │
+│   1806 │   │   │   │   if (                                                  │
+│   1807 │   │   │   │   │   args.logging_nan_inf_filter                       │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ trainer.py:2646 in training_step                                             │
+│                                                                              │
+│   2643 │   │   │   return loss_mb.reduce_mean().detach().to(self.args.device │
+│   2644 │   │                                                                 │
+│   2645 │   │   with self.compute_loss_context_manager():                     │
+│ ❱ 2646 │   │   │   loss = self.compute_loss(model, inputs)                   │
+│   2647 │   │                                                                 │
+│   2648 │   │   if self.args.n_gpu > 1:                                       │
+│   2649 │   │   │   loss = loss.mean()  # mean() to average on multi-gpu para │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ trainer.py:2671 in compute_loss                                              │
+│                                                                              │
+│   2668 │   │   │   labels = inputs.pop("labels")                             │
+│   2669 │   │   else:                                                         │
+│   2670 │   │   │   labels = None                                             │
+│ ❱ 2671 │   │   outputs = model(**inputs)                                     │
+│   2672 │   │   # Save past state if it exists                                │
+│   2673 │   │   # TODO: this needs to be fixed and made cleaner later.        │
+│   2674 │   │   if self.args.past_index >= 0:                                 │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modu │
+│ les/module.py:1501 in _call_impl                                             │
+│                                                                              │
+│   1498 │   │   if not (self._backward_hooks or self._backward_pre_hooks or s │
+│   1499 │   │   │   │   or _global_backward_pre_hooks or _global_backward_hoo │
+│   1500 │   │   │   │   or _global_forward_hooks or _global_forward_pre_hooks │
+│ ❱ 1501 │   │   │   return forward_call(*args, **kwargs)                      │
+│   1502 │   │   # Do not call functions when jit is used                      │
+│   1503 │   │   full_backward_hooks, non_full_backward_hooks = [], []         │
+│   1504 │   │   backward_pre_hooks = []                                       │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ models/bert/modeling_bert.py:1844 in forward                                 │
+│                                                                              │
+│   1841 │   │   """                                                           │
+│   1842 │   │   return_dict = return_dict if return_dict is not None else sel │
+│   1843 │   │                                                                 │
+│ ❱ 1844 │   │   outputs = self.bert(                                          │
+│   1845 │   │   │   input_ids,                                                │
+│   1846 │   │   │   attention_mask=attention_mask,                            │
+│   1847 │   │   │   token_type_ids=token_type_ids,                            │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modu │
+│ les/module.py:1501 in _call_impl                                             │
+│                                                                              │
+│   1498 │   │   if not (self._backward_hooks or self._backward_pre_hooks or s │
+│   1499 │   │   │   │   or _global_backward_pre_hooks or _global_backward_hoo │
+│   1500 │   │   │   │   or _global_forward_hooks or _global_forward_pre_hooks │
+│ ❱ 1501 │   │   │   return forward_call(*args, **kwargs)                      │
+│   1502 │   │   # Do not call functions when jit is used                      │
+│   1503 │   │   full_backward_hooks, non_full_backward_hooks = [], []         │
+│   1504 │   │   backward_pre_hooks = []                                       │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ models/bert/modeling_bert.py:1022 in forward                                 │
+│                                                                              │
+│   1019 │   │   │   inputs_embeds=inputs_embeds,                              │
+│   1020 │   │   │   past_key_values_length=past_key_values_length,            │
+│   1021 │   │   )                                                             │
+│ ❱ 1022 │   │   encoder_outputs = self.encoder(                               │
+│   1023 │   │   │   embedding_output,                                         │
+│   1024 │   │   │   attention_mask=extended_attention_mask,                   │
+│   1025 │   │   │   head_mask=head_mask,                                      │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modu │
+│ les/module.py:1501 in _call_impl                                             │
+│                                                                              │
+│   1498 │   │   if not (self._backward_hooks or self._backward_pre_hooks or s │
+│   1499 │   │   │   │   or _global_backward_pre_hooks or _global_backward_hoo │
+│   1500 │   │   │   │   or _global_forward_hooks or _global_forward_pre_hooks │
+│ ❱ 1501 │   │   │   return forward_call(*args, **kwargs)                      │
+│   1502 │   │   # Do not call functions when jit is used                      │
+│   1503 │   │   full_backward_hooks, non_full_backward_hooks = [], []         │
+│   1504 │   │   backward_pre_hooks = []                                       │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ models/bert/modeling_bert.py:612 in forward                                  │
+│                                                                              │
+│    609 │   │   │   │   │   encoder_attention_mask,                           │
+│    610 │   │   │   │   )                                                     │
+│    611 │   │   │   else:                                                     │
+│ ❱  612 │   │   │   │   layer_outputs = layer_module(                         │
+│    613 │   │   │   │   │   hidden_states,                                    │
+│    614 │   │   │   │   │   attention_mask,                                   │
+│    615 │   │   │   │   │   layer_head_mask,                                  │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modu │
+│ les/module.py:1501 in _call_impl                                             │
+│                                                                              │
+│   1498 │   │   if not (self._backward_hooks or self._backward_pre_hooks or s │
+│   1499 │   │   │   │   or _global_backward_pre_hooks or _global_backward_hoo │
+│   1500 │   │   │   │   or _global_forward_hooks or _global_forward_pre_hooks │
+│ ❱ 1501 │   │   │   return forward_call(*args, **kwargs)                      │
+│   1502 │   │   # Do not call functions when jit is used                      │
+│   1503 │   │   full_backward_hooks, non_full_backward_hooks = [], []         │
+│   1504 │   │   backward_pre_hooks = []                                       │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ models/bert/modeling_bert.py:497 in forward                                  │
+│                                                                              │
+│    494 │   ) -> Tuple[torch.Tensor]:                                         │
+│    495 │   │   # decoder uni-directional self-attention cached key/values tu │
+│    496 │   │   self_attn_past_key_value = past_key_value[:2] if past_key_val │
+│ ❱  497 │   │   self_attention_outputs = self.attention(                      │
+│    498 │   │   │   hidden_states,                                            │
+│    499 │   │   │   attention_mask,                                           │
+│    500 │   │   │   head_mask,                                                │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modu │
+│ les/module.py:1501 in _call_impl                                             │
+│                                                                              │
+│   1498 │   │   if not (self._backward_hooks or self._backward_pre_hooks or s │
+│   1499 │   │   │   │   or _global_backward_pre_hooks or _global_backward_hoo │
+│   1500 │   │   │   │   or _global_forward_hooks or _global_forward_pre_hooks │
+│ ❱ 1501 │   │   │   return forward_call(*args, **kwargs)                      │
+│   1502 │   │   # Do not call functions when jit is used                      │
+│   1503 │   │   full_backward_hooks, non_full_backward_hooks = [], []         │
+│   1504 │   │   backward_pre_hooks = []                                       │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ models/bert/modeling_bert.py:427 in forward                                  │
+│                                                                              │
+│    424 │   │   past_key_value: Optional[Tuple[Tuple[torch.FloatTensor]]] = N │
+│    425 │   │   output_attentions: Optional[bool] = False,                    │
+│    426 │   ) -> Tuple[torch.Tensor]:                                         │
+│ ❱  427 │   │   self_outputs = self.self(                                     │
+│    428 │   │   │   hidden_states,                                            │
+│    429 │   │   │   attention_mask,                                           │
+│    430 │   │   │   head_mask,                                                │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/torch/nn/modu │
+│ les/module.py:1501 in _call_impl                                             │
+│                                                                              │
+│   1498 │   │   if not (self._backward_hooks or self._backward_pre_hooks or s │
+│   1499 │   │   │   │   or _global_backward_pre_hooks or _global_backward_hoo │
+│   1500 │   │   │   │   or _global_forward_hooks or _global_forward_pre_hooks │
+│ ❱ 1501 │   │   │   return forward_call(*args, **kwargs)                      │
+│   1502 │   │   # Do not call functions when jit is used                      │
+│   1503 │   │   full_backward_hooks, non_full_backward_hooks = [], []         │
+│   1504 │   │   backward_pre_hooks = []                                       │
+│                                                                              │
+│ /work/y53kang/.conda/envs/spoiler/lib/python3.10/site-packages/transformers/ │
+│ models/bert/modeling_bert.py:325 in forward                                  │
+│                                                                              │
+│    322 │   │   │   past_key_value = (key_layer, value_layer)                 │
+│    323 │   │                                                                 │
+│    324 │   │   # Take the dot product between "query" and "key" to get the r │
+│ ❱  325 │   │   attention_scores = torch.matmul(query_layer, key_layer.transp │
+│    326 │   │                                                                 │
+│    327 │   │   if self.position_embedding_type == "relative_key" or self.pos │
+│    328 │   │   │   query_length, key_length = query_layer.shape[2], key_laye │
+╰──────────────────────────────────────────────────────────────────────────────╯
+OutOfMemoryError: CUDA out of memory. Tried to allocate 192.00 MiB (GPU 0; 15.89
+GiB total capacity; 15.17 GiB already allocated; 39.88 MiB free; 15.18 GiB 
+reserved in total by PyTorch) If reserved memory is >> allocated memory try 
+setting max_split_size_mb to avoid fragmentation.  See documentation for Memory 
+Management and PYTORCH_CUDA_ALLOC_CONF
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run stellar-vortex-11 at: https://wandb.ai/ym_k/huggingface/runs/6q0zx2fq
+wandb: ️⚡ View job at https://wandb.ai/ym_k/huggingface/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjg2OTkzNTMx/version_details/v2
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230802_211039-6q0zx2fq/logs

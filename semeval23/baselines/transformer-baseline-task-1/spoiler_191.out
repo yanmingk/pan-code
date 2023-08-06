@@ -1,0 +1,384 @@
+Thu Aug  3 16:47:34 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100 80G...  On   | 00000000:41:00.0 Off |                    0 |
+| N/A   35C    P0    44W / 300W |      0MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+08/03/2023 16:47:43 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+08/03/2023 16:47:43 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=../../outputs/task1-deberta-v2-xlarge-mnli/runs/Aug03_16-47-42_gpu-pr1-02,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=4.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=../../outputs/task1-deberta-v2-xlarge-mnli,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard', 'wandb'],
+resume_from_checkpoint=None,
+run_name=../../outputs/task1-deberta-v2-xlarge-mnli,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|configuration_utils.py:715] 2023-08-03 16:47:43,458 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/config.json
+[INFO|configuration_utils.py:771] 2023-08-03 16:47:43,468 >> Model config DebertaV2Config {
+  "_name_or_path": "microsoft/deberta-v2-xlarge-mnli",
+  "architectures": [
+    "DebertaV2ForSequenceClassification"
+  ],
+  "attention_head_size": 64,
+  "attention_probs_dropout_prob": 0.1,
+  "conv_act": "gelu",
+  "conv_kernel_size": 3,
+  "finetuning_task": "text-classification",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1536,
+  "id2label": {
+    "0": "CONTRADICTION",
+    "1": "NEUTRAL",
+    "2": "ENTAILMENT"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 6144,
+  "label2id": {
+    "CONTRADICTION": 0,
+    "ENTAILMENT": 2,
+    "NEUTRAL": 1
+  },
+  "layer_norm_eps": 1e-07,
+  "max_position_embeddings": 512,
+  "max_relative_positions": -1,
+  "model_type": "deberta-v2",
+  "norm_rel_ebd": "layer_norm",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_dropout": 0,
+  "pooler_hidden_act": "gelu",
+  "pooler_hidden_size": 1536,
+  "pooling": {
+    "dropout": 0,
+    "hidden_act": "gelu"
+  },
+  "pos_att_type": [
+    "p2c",
+    "c2p"
+  ],
+  "position_biased_input": false,
+  "position_buckets": 256,
+  "relative_attention": true,
+  "share_att_key": true,
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 0,
+  "vocab_size": 128100
+}
+
+{'id': 10, 'context': 'Analysis: This may be the most brutal number in the CBO reportThis may be the most brutal number in the CBO report - Plenty has been made of the big Congressional Budget Office finding that 24 million people could lose their insurance under Republicans\' Obamacare replacement over the next decade. That\'s higher than expected and poses a clear and massive hurdle for Republicans as they attempt to convince dozens of skeptical members. But there\'s another number that paints a particularly dire picture for the GOP\'s alternative — especially in light of President Trump\'s populist rhetoric. According to the CBO, 64-year olds making $26,500 per year would see their premiums increase by an estimated 750 percent by 2026. While they are on track to pay $1,700 under the current law, the CBO projects the American Health Care Act would force them to pay $14,600. Even if you grant that inflation will allow them to make slightly more money by 2026, that\'s still about half of their income going to health care. Here\'s how that looks as a percentage of income (h/t Philip Bump): As skeptics of the law noted, that suggests the reason premiums as a whole will eventually decline is because older, poorer people simply won\'t be able to afford it. The legislation reduces premiums substantially for younger people but increases them substantially for older people — and especially poorer, older people — according to the CBO. The CBO\'s estimate of the premium increases for older, poorer Americans is actually worse than a previous one from AARP. Here\'s what AARP, which has announced its opposition to the bill, said last week: ... Our estimates find that, taken together, premiums for older adults could increase by as much as $3,600 for a 55-year old earning $25,000 a year, $7,000 for a 64-year old earning $25,000 a year and up to $8,400 for a 64-year old earning $15,000 a year. If you\'re a Republican looking at these numbers, you have to be concerned — just from a self-preservation standpoint. Republican leaders have made great pains to argue that the CBO\'s estimate of the millions who will lose insurance is faulty, or even that it\'s a necessary side effect of returning to a more free-market approach to health care. But the GOP\'s counter-argument is predicated on the idea that its alternative would at least allow people access to coverage. Paying such a substantial portion of one\'s income on health insurance doesn\'t meet that goal — if, in fact, the CBO\'s estimate is anywhere close to accurate. It also affects a group of voters who are integral to the Trump Coalition. Less-formally educated and lower-income white Americans were the backbone of the electoral shift that allowed President Trump to be elected, and he has promised them the world: Coverage that is even more affordable than the Affordable Care Act and "insurance for everybody." On top of all that, older people are much more likely to vote than younger people, especially in a midterm election like 2018. So basically, Trump\'s win was built on older, poorer people, for whom this law appears to drive up premiums and drive down the insurance rate, while benefiting the younger and wealthier. That\'s not something that will assure skeptical Republicans at all — even if they can get past that 24 million number.', 'tags': 'phrase'}
+['multi', 'passage', 'phrase']
+08/03/2023 16:47:43 - INFO - __main__ - setting problem type to single label classification
+[INFO|configuration_utils.py:715] 2023-08-03 16:47:43,514 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/config.json
+[INFO|configuration_utils.py:771] 2023-08-03 16:47:43,515 >> Model config DebertaV2Config {
+  "_name_or_path": "microsoft/deberta-v2-xlarge-mnli",
+  "architectures": [
+    "DebertaV2ForSequenceClassification"
+  ],
+  "attention_head_size": 64,
+  "attention_probs_dropout_prob": 0.1,
+  "conv_act": "gelu",
+  "conv_kernel_size": 3,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1536,
+  "id2label": {
+    "0": "CONTRADICTION",
+    "1": "NEUTRAL",
+    "2": "ENTAILMENT"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 6144,
+  "label2id": {
+    "CONTRADICTION": 0,
+    "ENTAILMENT": 2,
+    "NEUTRAL": 1
+  },
+  "layer_norm_eps": 1e-07,
+  "max_position_embeddings": 512,
+  "max_relative_positions": -1,
+  "model_type": "deberta-v2",
+  "norm_rel_ebd": "layer_norm",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_dropout": 0,
+  "pooler_hidden_act": "gelu",
+  "pooler_hidden_size": 1536,
+  "pooling": {
+    "dropout": 0,
+    "hidden_act": "gelu"
+  },
+  "pos_att_type": [
+    "p2c",
+    "c2p"
+  ],
+  "position_biased_input": false,
+  "position_buckets": 256,
+  "relative_attention": true,
+  "share_att_key": true,
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 0,
+  "vocab_size": 128100
+}
+
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 16:47:43,522 >> loading file spm.model from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/spm.model
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 16:47:43,522 >> loading file tokenizer.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 16:47:43,522 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 16:47:43,522 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1844] 2023-08-03 16:47:43,522 >> loading file tokenizer_config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/tokenizer_config.json
+[INFO|configuration_utils.py:715] 2023-08-03 16:47:43,523 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/config.json
+[INFO|configuration_utils.py:771] 2023-08-03 16:47:43,524 >> Model config DebertaV2Config {
+  "_name_or_path": "microsoft/deberta-v2-xlarge-mnli",
+  "architectures": [
+    "DebertaV2ForSequenceClassification"
+  ],
+  "attention_head_size": 64,
+  "attention_probs_dropout_prob": 0.1,
+  "conv_act": "gelu",
+  "conv_kernel_size": 3,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1536,
+  "id2label": {
+    "0": "CONTRADICTION",
+    "1": "NEUTRAL",
+    "2": "ENTAILMENT"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 6144,
+  "label2id": {
+    "CONTRADICTION": 0,
+    "ENTAILMENT": 2,
+    "NEUTRAL": 1
+  },
+  "layer_norm_eps": 1e-07,
+  "max_position_embeddings": 512,
+  "max_relative_positions": -1,
+  "model_type": "deberta-v2",
+  "norm_rel_ebd": "layer_norm",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_dropout": 0,
+  "pooler_hidden_act": "gelu",
+  "pooler_hidden_size": 1536,
+  "pooling": {
+    "dropout": 0,
+    "hidden_act": "gelu"
+  },
+  "pos_att_type": [
+    "p2c",
+    "c2p"
+  ],
+  "position_biased_input": false,
+  "position_buckets": 256,
+  "relative_attention": true,
+  "share_att_key": true,
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 0,
+  "vocab_size": 128100
+}
+
+[INFO|tokenization_utils.py:426] 2023-08-03 16:47:44,021 >> Adding [MASK] to the vocabulary
+[WARNING|logging.py:284] 2023-08-03 16:47:44,021 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:715] 2023-08-03 16:47:44,022 >> loading configuration file config.json from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/config.json
+[INFO|configuration_utils.py:771] 2023-08-03 16:47:44,023 >> Model config DebertaV2Config {
+  "_name_or_path": "microsoft/deberta-v2-xlarge-mnli",
+  "architectures": [
+    "DebertaV2ForSequenceClassification"
+  ],
+  "attention_head_size": 64,
+  "attention_probs_dropout_prob": 0.1,
+  "conv_act": "gelu",
+  "conv_kernel_size": 3,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1536,
+  "id2label": {
+    "0": "CONTRADICTION",
+    "1": "NEUTRAL",
+    "2": "ENTAILMENT"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 6144,
+  "label2id": {
+    "CONTRADICTION": 0,
+    "ENTAILMENT": 2,
+    "NEUTRAL": 1
+  },
+  "layer_norm_eps": 1e-07,
+  "max_position_embeddings": 512,
+  "max_relative_positions": -1,
+  "model_type": "deberta-v2",
+  "norm_rel_ebd": "layer_norm",
+  "num_attention_heads": 24,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_dropout": 0,
+  "pooler_hidden_act": "gelu",
+  "pooler_hidden_size": 1536,
+  "pooling": {
+    "dropout": 0,
+    "hidden_act": "gelu"
+  },
+  "pos_att_type": [
+    "p2c",
+    "c2p"
+  ],
+  "position_biased_input": false,
+  "position_buckets": 256,
+  "relative_attention": true,
+  "share_att_key": true,
+  "transformers_version": "4.32.0.dev0",
+  "type_vocab_size": 0,
+  "vocab_size": 128100
+}
+
+[WARNING|logging.py:284] 2023-08-03 16:47:44,256 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|modeling_utils.py:2638] 2023-08-03 16:47:44,370 >> loading weights file pytorch_model.bin from cache at /work/y53kang/.cache/huggingface/hub/models--microsoft--deberta-v2-xlarge-mnli/snapshots/5272422ce68b8d61766079390b96b033a64414d2/pytorch_model.bin
+[INFO|modeling_utils.py:3370] 2023-08-03 16:47:50,146 >> All model checkpoint weights were used when initializing DebertaV2ForSequenceClassification.
+
+[INFO|modeling_utils.py:3378] 2023-08-03 16:47:50,147 >> All the weights of DebertaV2ForSequenceClassification were initialized from the model checkpoint at microsoft/deberta-v2-xlarge-mnli.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use DebertaV2ForSequenceClassification for predictions without further training.
+08/03/2023 16:47:50 - WARNING - __main__ - The label2id key in the model config.json is not equal to the label2id key of this run. You can ignore this if you are doing finetuning.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -1/run_classification.py:752 in <module>                                     │
+│                                                                              │
+│   749                                                                        │
+│   750                                                                        │
+│   751 if __name__ == "__main__":                                             │
+│ ❱ 752 │   main()                                                             │
+│   753                                                                        │
+│                                                                              │
+│ /mnt/hpc/work/y53kang/pan-code/semeval23/baselines/transformer-baseline-task │
+│ -1/run_classification.py:580 in main                                         │
+│                                                                              │
+│   577 │                                                                      │
+│   578 │   # Running the preprocessing pipeline on all the datasets           │
+│   579 │   with training_args.main_process_first(desc="dataset map pre-proces │
+│ ❱ 580 │   │   raw_datasets = raw_datasets.map(                               │
+│   581 │   │   │   preprocess_function,                                       │
+│   582 │   │   │   batched=True,                                              │
+│   583 │   │   │   load_from_cache_file=not data_args.overwrite_cache,        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+AttributeError: 'dict' object has no attribute 'map'
